@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMJ Movies Searcher</title>
+    <style>
+        :root {
+            --bg-color: #111827;
+            --section-bg: #1f2937;
+            --card-bg: #111827;
+            --accent-color: #38bdf8;
+            --text-color: #f9fafb;
+            --text-muted: #9ca3af;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 1.5rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .search-box {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 2rem;
+        }
+
+        input[type="text"] {
+            width: 60%;
+            max-width: 500px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            border: 1px solid #374151;
+            background-color: #1f2937;
+            color: #fff;
+            font-size: 16px;
+            outline: none;
+        }
+
+        input[type="text"]:focus {
+            border-color: var(--accent-color);
+        }
+
+        button {
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: none;
+            background-color: var(--accent-color);
+            color: #0f172a;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        #status {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        .platform-section {
+            background-color: var(--section-bg);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .platform-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #374151;
+            padding-bottom: 0.75rem;
+        }
+
+        .platform-logo {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+            border-radius: 4px;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 12px;
+        }
+
+        .movie-card {
+            background-color: var(--card-bg);
+            border-radius: 6px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        .poster-wrapper {
+            width: 100%;
+            aspect-ratio: 2 / 3;
+            background-color: #374151;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .poster-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Movie Title Footer Layout */
+        .movie-info {
+            padding: 8px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 6px;
+            background-color: #111827;
+            min-height: 24px;
+        }
+
+        .movie-title-text {
+            font-size: 12.5px;
+            color: #e5e7eb;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-align: left;
+            direction: ltr;
+            flex-grow: 1;
+        }
+
+        .movie-type-tag {
+            font-size: 12px;
+            color: #9ca3af;
+            white-space: nowrap;
+            direction: rtl;
+            flex-shrink: 0;
+        }
+
+        .no-results {
+            color: var(--text-muted);
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>🎬 AMJ Movies Searcher</h1>
+    </header>
+
+    <div class="search-box">
+        <input type="text" id="query" placeholder="Search for movies or series..." onkeydown="if(event.key === 'Enter') startSearch()">
+        <button onclick="startSearch()">Search</button>
+    </div>
+
+    <div id="status"></div>
+    <div id="results-container"></div>
+</div>
+
+<script>
+    let eventSource = null;
+
+    function startSearch() {
+        const query = document.getElementById('query').value.trim();
+        const statusDiv = document.getElementById('status');
+        const resultsContainer = document.getElementById('results-container');
+
+        if (!query) return;
+
+        if (eventSource) {
+            eventSource.close();
+        }
+        resultsContainer.innerHTML = '';
+        statusDiv.innerText = 'Initializing search...';
+
+        eventSource = new EventSource(`/api/search?q=${encodeURIComponent(query)}`);
+
+        eventSource.onmessage = function(event) {
+            const data = JSON.parse(event.data);
+
+            if (data.type === 'status') {
+                statusDiv.innerText = data.message;
+            } 
+            else if (data.type === 'result') {
+                renderPlatformResults(data);
+            } 
+            else if (data.type === 'done') {
+                statusDiv.innerText = 'Search complete!';
+                eventSource.close();
+            }
+        };
+
+        eventSource.onerror = function() {
+            statusDiv.innerText = 'An error occurred while streaming results.';
+            eventSource.close();
+        };
+    }
+
+    function renderPlatformResults(platformData) {
+        const resultsContainer = document.getElementById('results-container');
+
+        const section = document.createElement('div');
+        section.className = 'platform-section';
+
+        const header = document.createElement('div');
+        header.className = 'platform-header';
+        
+        const logo = document.createElement('img');
+        logo.src = platformData.logo || '';
+        logo.alt = platformData.platform;
+        logo.className = 'platform-logo';
+        logo.onerror = () => logo.style.display = 'none';
+
+        const title = document.createElement('h2');
+        title.style.margin = '0';
+        title.style.fontSize = '18px';
+        title.innerText = platformData.platform;
+
+        header.appendChild(logo);
+        header.appendChild(title);
+        section.appendChild(header);
+
+        if (platformData.results && platformData.results.length > 0) {
+            const grid = document.createElement('div');
+            grid.className = 'results-grid';
+
+            platformData.results.forEach(item => {
+                const card = document.createElement('a');
+                card.className = 'movie-card';
+                card.href = item.url;
+                card.target = '_blank';
+
+                const posterWrapper = document.createElement('div');
+                posterWrapper.className = 'poster-wrapper';
+
+                const img = document.createElement('img');
+                img.className = 'poster-img';
+                img.src = item.poster || 'https://via.placeholder.com/200x300?text=No+Poster';
+                img.alt = item.title;
+                img.loading = 'lazy';
+                img.onerror = function() {
+                    this.src = 'https://via.placeholder.com/200x300?text=No+Poster';
+                };
+
+                posterWrapper.appendChild(img);
+
+                // Meta container for English name (left) + Arabic type (right)
+                const movieInfo = document.createElement('div');
+                movieInfo.className = 'movie-info';
+
+                const titleText = document.createElement('span');
+                titleText.className = 'movie-title-text';
+                titleText.innerText = item.title;
+
+                movieInfo.appendChild(titleText);
+
+                if (item.type) {
+                    const typeTag = document.createElement('span');
+                    typeTag.className = 'movie-type-tag';
+                    typeTag.innerText = item.type;
+                    movieInfo.appendChild(typeTag);
+                }
+
+                card.appendChild(posterWrapper);
+                card.appendChild(movieInfo);
+                grid.appendChild(card);
+            });
+
+            section.appendChild(grid);
+        } else {
+            const noRes = document.createElement('p');
+            noRes.className = 'no-results';
+            noRes.innerText = 'No results found on this platform.';
+            section.appendChild(noRes);
+        }
+
+        resultsContainer.appendChild(section);
+    }
+</script>
+
+</body>
+</html>
