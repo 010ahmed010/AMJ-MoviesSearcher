@@ -452,6 +452,7 @@
                 img.src = item.poster || 'https://via.placeholder.com/200x300?text=No+Poster';
                 img.alt = item.title;
                 img.loading = 'lazy';
+                img.referrerPolicy = 'no-referrer'; // Bypasses hotlink protection / strict referrer checks
                 img.onerror = function() {
                     this.src = 'https://via.placeholder.com/200x300?text=No+Poster';
                 };
