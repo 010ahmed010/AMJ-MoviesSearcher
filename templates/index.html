@@ -19,17 +19,23 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             margin: 0;
-            padding: 1.5rem;
+            padding: 1.5rem 1.5rem 0 1.5rem;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         .container {
             max-width: 1400px;
             margin: 0 auto;
+            flex: 1;
+            width: 100%;
         }
 
         header {
             text-align: center;
             margin-bottom: 2rem;
+            margin-top: 2rem;
         }
 
         .search-box {
@@ -55,7 +61,7 @@
             border-color: var(--accent-color);
         }
 
-        button {
+        button, .portfolio-btn {
             padding: 12px 24px;
             border-radius: 8px;
             border: none;
@@ -65,9 +71,13 @@
             font-size: 16px;
             cursor: pointer;
             transition: opacity 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        button:hover {
+        button:hover, .portfolio-btn:hover {
             opacity: 0.9;
         }
 
@@ -176,13 +186,132 @@
             color: var(--text-muted);
             font-style: italic;
         }
+
+        /* Static Footer Styling */
+        footer {
+            background-color: var(--section-bg);
+            border-top: 1px solid #374151;
+            margin: 4rem -1.5rem 0 -1.5rem;
+            padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        .footer-brand h3 {
+            color: var(--accent-color);
+            font-size: 1.4rem;
+            margin: 0 0 0.75rem 0;
+            font-weight: 700;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 0 0 1.25rem 0;
+        }
+
+        .footer-badge-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .footer-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--card-bg);
+            border: 1px solid #374151;
+            padding: 0.6rem 1rem;
+            border-radius: 8px;
+            color: var(--text-color);
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: border-color 0.2s ease;
+            width: fit-content;
+        }
+
+        .footer-badge:hover {
+            border-color: var(--accent-color);
+        }
+
+        .footer-badge svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--accent-color);
+            flex-shrink: 0;
+        }
+
+        .footer-column h4 {
+            color: var(--text-color);
+            font-size: 1.05rem;
+            margin: 0 0 1rem 0;
+            font-weight: 600;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            background-color: var(--card-bg);
+            border: 1px solid #374151;
+            border-radius: 8px;
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .social-btn:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .social-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 2rem auto 0 auto;
+            padding-top: 1.25rem;
+            border-top: 1px solid #374151;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
     <header>
-        <h1>AMJ Movies Searcher</h1>
+        <h1 style="display: inline;color: #38bdf8;">AMJ </h1>
+        <h1 style="display: inline;">Movies Searcher</h1>
     </header>
 
     <div class="search-box">
@@ -193,6 +322,54 @@
     <div id="status"></div>
     <div id="results-container"></div>
 </div>
+
+<footer>
+    <div class="footer-content">
+        <!-- Section 1: Brand & Contact Info -->
+        <div class="footer-brand">
+            <h3>Ahmed Al-Jassem</h3>
+            <p>Crafting seamless digital experiences with modern web technologies and engineering precision.</p>
+            <div class="footer-badge-list">
+                <a href="mailto:amj.tech.work@gmail.com" class="footer-badge">
+                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    amj.tech.work@gmail.com
+                </a>
+                <a href="tel:0984290028" class="footer-badge">
+                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    0984290028
+                </a>
+                <div class="footer-badge">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5-2.5 z"/></svg>
+                    Aleppo, Syria
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: Connect & Portfolio Action -->
+        <div class="footer-column">
+            <h4>Connect With Me</h4>
+            <div class="footer-socials">
+                <a href="https://wa.me/963984290028" target="_blank" rel="noopener" class="social-btn" title="WhatsApp">
+                    <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c4.55 0 8.25 3.7 8.25 8.24 0 2.2-.86 4.27-2.42 5.82a8.18 8.18 0 0 1-5.83 2.42c-1.47 0-2.91-.39-4.19-1.14l-.3-.18-3.11.82.83-3.04-.2-.32a8.217 8.217 0 0 1-1.26-4.38c.01-4.55 3.7-8.24 8.23-8.24"/></svg>
+                </a>
+                <a href="tel:0984290028" class="social-btn" title="Phone">
+                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                </a>
+                <a href="mailto:amj.tech.work@gmail.com" class="social-btn" title="Email">
+                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                </a>
+            </div>
+
+            <a href="https://amj.ahmed-aljassem.free.nf/" target="_blank" rel="noopener" class="portfolio-btn">
+                Visit My Portfolio
+            </a>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        &copy; 2026 Ahmed Al-Jassem. All rights reserved.
+    </div>
+</footer>
 
 <script>
     let eventSource = null;
