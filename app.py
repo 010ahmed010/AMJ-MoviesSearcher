@@ -156,8 +156,8 @@ def search_topcinema(
 # 📋 SECTION 2: REGISTER PLATFORM CONFIGURATIONS
 # ==============================================================================
 PLATFORMS = [
-    (search_cimaleek, "CimaLeek", "assests/logos/CimaLeek-logo.png"),
-    (search_topcinema, "TopCinema", "assests/logos/TopCinema-logo.png"),
+    (search_cimaleek, "CimaLeek", "https://m.cimaleek.pw/wp-content/uploads/2022/11/cropped-fav-2-192x192.png"),
+    (search_topcinema, "TopCinema", "https://topcinema.io/wp-content/uploads/2023/05/cropped-icon-192x192.png"),
 
     # Add future platform tuples here
 ]
