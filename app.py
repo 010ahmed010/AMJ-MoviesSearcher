@@ -1,7 +1,7 @@
 import json
 import re
 from urllib.parse import urljoin
-from typing import Dict, List, Any, Callable
+from typing import Dict, List, Any
 import requests
 from bs4 import BeautifulSoup
 from flask import Flask, render_template, request, Response, stream_with_context
@@ -21,6 +21,14 @@ TIMEOUT = 10
 # ==============================================================================
 # 🧩 SECTION 1: CUSTOM PLATFORM EXTRACTOR FUNCTIONS
 # ==============================================================================
+def parse_type_and_title(full_title: str) -> tuple[str, str]:
+    """Extracts media type prefix (e.g., فيلم, مسلسل) if present."""
+    parts = full_title.split(' ', 1)
+    if len(parts) > 1 and any("\u0600" <= c <= "\u06FF" for c in parts[0]):
+        return parts[0], parts[1]
+    return "", full_title
+
+
 def search_cimaleek(platform_name: str, logo_path: str, keyword: str) -> Dict[str, Any]:
     results = []
     search_url = f"https://m.cimaleek.pw/?s={keyword}"
@@ -42,14 +50,7 @@ def search_cimaleek(platform_name: str, logo_path: str, keyword: str) -> Dict[st
                 url = link_tag["href"]
                 poster = img_tag.get("data-src") or img_tag.get("src") if img_tag else ""
                 
-                # Split prefix ("فيلم", "مسلسل", etc.) from main title
-                parts = full_title.split(' ', 1)
-                if len(parts) > 1 and any("\u0600" <= c <= "\u06FF" for c in parts[0]):
-                    media_type = parts[0]  # Arabic type (e.g., فيلم)
-                    title_name = parts[1]  # Title (e.g., Hope Ranch)
-                else:
-                    media_type = ""
-                    title_name = full_title
+                media_type, title_name = parse_type_and_title(full_title)
                 
                 results.append({
                     "title": title_name,
@@ -67,13 +68,10 @@ def search_cimaleek(platform_name: str, logo_path: str, keyword: str) -> Dict[st
         "results": results
     }
 
+
 def search_topcinema(
     platform_name: str, logo_path: str, keyword: str
 ) -> Dict[str, Any]:
-    """Extractor function for TopCinema (HTML / BeautifulSoup).
-
-    Deduplicates series episodes into a single entry per series season.
-    """
     results = []
     seen_series = set()
 
@@ -87,8 +85,6 @@ def search_topcinema(
         response.raise_for_status()
 
         soup = BeautifulSoup(response.text, "html.parser")
-
-        # FIX: Expanded CSS selector to match movies, series, and episode grid containers
         items = soup.select(
             "div.Block--Item, div.Small--Box, div.Series--Box, div.Episode--Box, div.Movie--Box, div.Grid--Item"
         )
@@ -119,9 +115,7 @@ def search_topcinema(
             )
 
             if is_series:
-                clean_title = re.sub(
-                    r"الحلقة\s+\d+", "", raw_title, flags=re.IGNORECASE
-                )
+                clean_title = re.sub(r"الحلقة\s+\d+", "", raw_title, flags=re.IGNORECASE)
                 clean_title = re.sub(
                     r"والاخيرة|والأخيرة|مترجمة|مترجم|اون لاين|أون لاين",
                     "",
@@ -131,18 +125,15 @@ def search_topcinema(
                 clean_title = re.sub(r"\s+", " ", clean_title).strip()
 
                 dedup_key = clean_title.lower()
-
                 if dedup_key in seen_series:
                     continue
-
                 seen_series.add(dedup_key)
-                results.append(
-                    {"title": clean_title, "url": url, "poster": poster}
-                )
+                
+                media_type, title_name = parse_type_and_title(clean_title)
+                results.append({"title": title_name, "type": media_type or "مسلسل", "url": url, "poster": poster})
             else:
-                results.append(
-                    {"title": raw_title, "url": url, "poster": poster}
-                )
+                media_type, title_name = parse_type_and_title(raw_title)
+                results.append({"title": title_name, "type": media_type, "url": url, "poster": poster})
 
     except Exception as e:
         print(f"[{platform_name}] Error during fetch: {e}")
@@ -153,13 +144,10 @@ def search_topcinema(
         "results": results,
     }
 
+
 def search_brstej(
     platform_name: str, logo_path: str, keyword: str
 ) -> Dict[str, Any]:
-    """Extractor function for Brstej / موقع برستيج (HTML / BeautifulSoup).
-
-    Deduplicates series episodes into a single entry per series.
-    """
     results = []
     seen_series = set()
 
@@ -174,12 +162,9 @@ def search_brstej(
         response.raise_for_status()
 
         soup = BeautifulSoup(response.text, "html.parser")
-
-        # Select video items from the grid container
         items = soup.select("#pm-grid li, ul.pm-ul-browse-videos li")
 
         for item in items:
-            # Target the anchor in .caption h3 to bypass the watch-later modal link
             link_el = item.select_one(".caption h3 a")
             img_el = item.select_one("img")
 
@@ -189,7 +174,6 @@ def search_brstej(
             raw_title = link_el.text.strip()
             url = urljoin(base_url, link_el["href"])
 
-            # Handle lazy-loaded poster images using data-echo or data-original
             poster = ""
             if img_el:
                 poster = (
@@ -208,7 +192,6 @@ def search_brstej(
             )
 
             if is_series:
-                # Strip out episode numbers, season numbers, and adjectives for clean deduplication
                 clean_title = re.sub(
                     r"الموسم\s+\d+|الحلقة\s+\d+", "", raw_title, flags=re.IGNORECASE
                 )
@@ -221,18 +204,15 @@ def search_brstej(
                 clean_title = re.sub(r"\s+", " ", clean_title).strip()
 
                 dedup_key = clean_title.lower()
-
                 if dedup_key in seen_series:
                     continue
-
                 seen_series.add(dedup_key)
-                results.append(
-                    {"title": clean_title, "url": url, "poster": poster}
-                )
+
+                media_type, title_name = parse_type_and_title(clean_title)
+                results.append({"title": title_name, "type": media_type or "مسلسل", "url": url, "poster": poster})
             else:
-                results.append(
-                    {"title": raw_title, "url": url, "poster": poster}
-                )
+                media_type, title_name = parse_type_and_title(raw_title)
+                results.append({"title": title_name, "type": media_type, "url": url, "poster": poster})
 
     except Exception as e:
         print(f"[{platform_name}] Error during fetch: {e}")
@@ -243,17 +223,14 @@ def search_brstej(
         "results": results,
     }
 
+
 # ==============================================================================
 # 📋 SECTION 2: REGISTER PLATFORM CONFIGURATIONS
 # ==============================================================================
 PLATFORMS = [
     (search_cimaleek, "CimaLeek", "https://m.cimaleek.pw/wp-content/uploads/2022/11/cropped-fav-2-192x192.png"),
     (search_topcinema, "TopCinema", "https://topcinema.io/wp-content/uploads/2023/05/cropped-icon-192x192.png"),
-    (search_brstej, "Brstej", "https://topcinema.io/wp-content/uploads/2023/05/cropped-icon-192x192.png"),
-
-
-
-    # Add future platform tuples here
+    (search_brstej, "Brstej", "https://aboutmsr.com/wp-content/uploads/2025/07/%D9%88%D9%82%D8%B9-%D8%A8%D8%B1%D8%B3%D8%AA%D9%8A%D8%AC.png"),
 ]
 
 

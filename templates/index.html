@@ -103,7 +103,6 @@
             margin-bottom: 1rem;
             border-bottom: 1px solid #374151;
             padding-bottom: 0.75rem;
-
         }
 
         .platform-logo {
@@ -119,22 +118,25 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
             gap: 12px;
+            align-items: start;
         }
 
+        /* Movie Card Container */
         .movie-card {
             background-color: var(--card-bg);
             border-radius: 6px;
-            overflow: hidden;
             display: flex;
             flex-direction: column;
             text-decoration: none;
             color: inherit;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
         }
 
         .movie-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+            z-index: 20;
         }
 
         .poster-wrapper {
@@ -142,6 +144,7 @@
             aspect-ratio: 2 / 3;
             background-color: #374151;
             overflow: hidden;
+            border-radius: 6px 6px 0 0;
             position: relative;
         }
 
@@ -152,15 +155,27 @@
             display: block;
         }
 
-        /* Movie Title Footer Layout */
+        /* Movie Info Bottom Footer Layout */
         .movie-info {
             padding: 8px 10px;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             gap: 6px;
             background-color: #111827;
             min-height: 24px;
+            direction: rtl;
+            border-radius: 0 0 6px 6px;
+            position: relative;
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        .movie-type-tag {
+            font-size: 12px;
+            color: #9ca3af;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .movie-title-text {
@@ -169,17 +184,26 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            text-align: left;
-            direction: ltr;
+            text-align: center;
             flex-grow: 1;
+            direction: auto;
         }
 
-        .movie-type-tag {
-            font-size: 12px;
-            color: #9ca3af;
-            white-space: nowrap;
-            direction: rtl;
-            flex-shrink: 0;
+        /* Card Hover Behavior: Expand title cleanly over bottom boundary */
+        .movie-card:hover .movie-info {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            z-index: 10;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            border-radius: 0 0 6px 6px;
+        }
+
+        .movie-card:hover .movie-title-text {
+            white-space: normal;
+            word-break: break-word;
+            overflow: visible;
         }
 
         .no-results {
@@ -187,7 +211,7 @@
             font-style: italic;
         }
 
-        /* Static Footer Styling */
+        /* Footer Styling */
         footer {
             background-color: var(--section-bg);
             border-top: 1px solid #374151;
@@ -325,7 +349,6 @@
 
 <footer>
     <div class="footer-content">
-        <!-- Section 1: Brand & Contact Info -->
         <div class="footer-brand">
             <h3>Ahmed Al-Jassem</h3>
             <p>Crafting seamless digital experiences with modern web technologies and engineering precision.</p>
@@ -345,7 +368,6 @@
             </div>
         </div>
 
-        <!-- Section 2: Connect & Portfolio Action -->
         <div class="footer-column">
             <h4>Connect With Me</h4>
             <div class="footer-socials">
@@ -444,6 +466,10 @@
                 card.href = item.url;
                 card.target = '_blank';
 
+                // Standard Browser Native Tooltip (title attribute)
+                const fullDisplayTitle = item.type ? `${item.type} ${item.title}` : item.title;
+                card.title = fullDisplayTitle;
+
                 const posterWrapper = document.createElement('div');
                 posterWrapper.className = 'poster-wrapper';
 
@@ -452,22 +478,15 @@
                 img.src = item.poster || 'https://via.placeholder.com/200x300?text=No+Poster';
                 img.alt = item.title;
                 img.loading = 'lazy';
-                img.referrerPolicy = 'no-referrer'; // Bypasses hotlink protection / strict referrer checks
+                img.referrerPolicy = 'no-referrer';
                 img.onerror = function() {
                     this.src = 'https://via.placeholder.com/200x300?text=No+Poster';
                 };
 
                 posterWrapper.appendChild(img);
 
-                // Meta container for English name (left) + Arabic type (right)
                 const movieInfo = document.createElement('div');
                 movieInfo.className = 'movie-info';
-
-                const titleText = document.createElement('span');
-                titleText.className = 'movie-title-text';
-                titleText.innerText = item.title;
-
-                movieInfo.appendChild(titleText);
 
                 if (item.type) {
                     const typeTag = document.createElement('span');
@@ -475,6 +494,11 @@
                     typeTag.innerText = item.type;
                     movieInfo.appendChild(typeTag);
                 }
+
+                const titleText = document.createElement('span');
+                titleText.className = 'movie-title-text';
+                titleText.innerText = item.title;
+                movieInfo.appendChild(titleText);
 
                 card.appendChild(posterWrapper);
                 card.appendChild(movieInfo);
