@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<!-- prestige-theme-v14 -->
+<script>
+(function(){var root=document.documentElement,key='prestige-color-theme',media=window.matchMedia('(prefers-color-scheme: dark)'),choice=null;try{choice=localStorage.getItem(key);}catch(e){}function apply(v){root.dataset.prestigeTheme=v;root.style.colorScheme=v;var b=document.getElementById('prestige-theme-toggle');if(b){b.setAttribute('aria-pressed',v==='dark'?'true':'false');b.setAttribute('aria-label',v==='dark'?'تفعيل الوضع النهاري':'تفعيل الوضع الليلي');b.title=b.getAttribute('aria-label');b.querySelector('.pt-sun').setAttribute('aria-hidden','true');b.querySelector('.pt-moon').setAttribute('aria-hidden','true');}}apply(choice==='dark'||choice==='light'?choice:'light');function system(){if(choice!=='dark'&&choice!=='light')apply('light');}if(media.addEventListener)media.addEventListener('change',system);else media.addListener(system);window.addEventListener('storage',function(e){if(e.key===key){choice=e.newValue;system();if(choice==='light'||choice==='dark')apply(choice);}});document.addEventListener('DOMContentLoaded',function(){var header=document.querySelector('header.pm-top-head');if(!header)return;var b=document.createElement('button');b.type='button';b.id='prestige-theme-toggle';b.innerHTML='<span class="pt-sun">☀</span><span class="pt-moon">☾</span>';header.appendChild(b);apply(root.dataset.prestigeTheme);b.addEventListener('click',function(){choice=root.dataset.prestigeTheme==='dark'?'light':'dark';apply(choice);try{localStorage.setItem(key,choice);}catch(e){}});});})();
+</script><style>
+html{--pt-page:#f5f7fb;--pt-panel:#fff;--pt-soft:#eef2f7;--pt-ink:#273244;--pt-muted:#566276;--pt-line:#dce3ed;--pt-gold:#dba62f;--pt-header:#fff}
+html[data-prestige-theme="dark"]{--pt-page:#101722;--pt-panel:#1b2636;--pt-soft:#222f42;--pt-ink:#edf2f7;--pt-muted:#b0bdce;--pt-line:#334055;--pt-gold:#d8ac53;--pt-header:#141e2c}
+html[data-prestige-theme] body,html[data-prestige-theme] .mastcontent-wrap,html[data-prestige-theme] #content{background-color:var(--pt-page)!important;color:var(--pt-ink)}
+html[data-prestige-theme] :is(#pgh-home,#pcg-category,#pcd-directory,#prs-results,#psd-series,#pds-detail,#pln-latest){background:var(--pt-page)!important;color:var(--pt-ink)!important}
+html[data-prestige-theme] body.pwr-page{--pwr-bg:var(--pt-page)!important;--pwr-panel:var(--pt-panel)!important;--pwr-soft:var(--pt-soft)!important;--pwr-text:var(--pt-ink)!important;--pwr-muted:var(--pt-muted)!important;--pwr-line:var(--pt-line)!important;--pwr-gold:var(--pt-gold)!important;--pwr-dark:#141e2c!important}
+html[data-prestige-theme] header.pm-top-head{background:var(--pt-header)!important;border-bottom:1px solid var(--pt-line)!important;box-shadow:0 2px 8px #00000012!important;color:var(--pt-ink)!important}
+html[data-prestige-theme] header.pm-top-head .header-logo img{background:transparent!important;border-radius:0;padding:0!important;object-fit:contain!important}
+html[data-prestige-theme] #prestige-theme-toggle{position:absolute!important;top:12px;right:74px;left:auto;display:flex!important;align-items:center;justify-content:center;gap:2px;width:78px;height:40px;min-height:40px;padding:3px;margin:0;border:1px solid var(--pt-line);border-radius:24px;background:var(--pt-soft);color:var(--pt-muted);z-index:20;cursor:pointer;font:23px Arial,sans-serif;line-height:1}
+html[data-prestige-theme] #prestige-theme-toggle span{display:flex!important;align-items:center;justify-content:center;width:33px;height:32px;border-radius:50%;margin:0;padding:0;position:static!important}
+html[data-prestige-theme="light"] #prestige-theme-toggle .pt-sun,html[data-prestige-theme="dark"] #prestige-theme-toggle .pt-moon{background:var(--pt-gold);color:#302710}
+html[data-prestige-theme] #prestige-theme-toggle:focus-visible{outline:3px solid var(--pt-gold);outline-offset:3px}
+html[data-prestige-theme] header.pm-top-head #navslide-toggle span,html[data-prestige-theme] header.pm-top-head #navslide-toggle span:before,html[data-prestige-theme] header.pm-top-head #navslide-toggle span:after{background:var(--pt-ink)!important}
+html[data-prestige-theme] header.pm-top-head #pm-search,html[data-prestige-theme] .pm-search-suggestions-list{background:var(--pt-panel)!important;color:var(--pt-ink)!important;border-color:var(--pt-line)!important}
+html[data-prestige-theme] header.pm-top-head button._submit{background:transparent!important;color:var(--pt-ink)!important}
+html[data-prestige-theme] input::placeholder,html[data-prestige-theme] textarea::placeholder{color:var(--pt-muted)!important;opacity:1}
+html[data-prestige-theme] :is(input:not([type=checkbox]):not([type=radio]):not([type=hidden]),textarea,select){color:var(--pt-ink)!important;border-color:var(--pt-line)!important}
+html[data-prestige-theme="dark"] :is(input:not([type=checkbox]):not([type=radio]):not([type=hidden]),textarea,select){background-color:var(--pt-panel)!important}
+html[data-prestige-theme] :is(.modal-content,.panel,.dropdown-menu,.list-group-item,.well,.thumbnail){background-color:var(--pt-panel);color:var(--pt-ink);border-color:var(--pt-line)}
+html[data-prestige-theme] .container-footer,html[data-prestige-theme] footer{background:var(--pt-header)!important;color:var(--pt-muted)!important;border-color:var(--pt-line)!important}
+html[data-prestige-theme] .container-footer a{background:var(--pt-panel)!important;color:var(--pt-ink)!important;border-color:var(--pt-line)!important}
+html[data-prestige-theme] #prestige-menu{background:var(--pt-panel)!important;color:var(--pt-ink)!important}
+html[data-prestige-theme="dark"] :is(.pwr-note,.alert-warning){background:#30291d!important;color:#edce91!important;border-color:#665330!important}
+html[data-prestige-theme="dark"] :is(.pln-view [aria-pressed=true],.prs-toggle [aria-pressed=true],.pcd-filters [aria-pressed=true],.pds-seasons [aria-current],.pds-primary,.psd-pages [aria-current],.pln-pagination [aria-current],.pcg-pagination .active>a,.pagination .active>a){color:#302710!important;background:var(--pt-gold)!important}
+html[data-prestige-theme="dark"] :is(.pln-more,.psd-more){background:#30291d!important;color:#edce91!important;border-color:#a88440!important}
+html[data-prestige-theme="dark"] :is(.pgh-caption,.pcg-caption,.caption,.pgh-series-name,.pcg-series-name){color:var(--pt-ink)!important}
+@media(max-width:767px){html[data-prestige-theme] #prestige-theme-toggle{left:64px;right:auto;top:9px;width:74px;height:38px;min-height:38px;font-size:22px}html[data-prestige-theme] #prestige-theme-toggle span{width:30px;height:30px}}
+html[data-prestige-theme="dark"]{--pt-bg-0b1119:#080f18;--pt-bg-1d2633:#1b2636;--pt-bg-242d3c:#1b2636;--pt-bg-273244:#1b2636;--pt-bg-2f333f:#1b2636;--pt-bg-303440:#1b2636;--pt-bg-344155:#1b2636;--pt-bg-8b95a5:#1b2636;--pt-bg-dfa933:#d8ac53;--pt-bg-e4af38:#d8ac53;--pt-bg-e4e9f1:#222f42;--pt-bg-e5af36:#d8ac53;--pt-bg-e5af3e:#d8ac53;--pt-bg-e5eaf1:#222f42;--pt-bg-e6b343:#d8ac53;--pt-bg-e6ebf3:#222f42;--pt-bg-e7eaf0:#222f42;--pt-bg-e8edf4:#222f42;--pt-bg-e9ecf1:#222f42;--pt-bg-edf0f4:#222f42;--pt-bg-edf0f5:#222f42;--pt-bg-eef1f6:#222f42;--pt-bg-eef2f7:#222f42;--pt-bg-f0f2f6:#222f42;--pt-bg-f0f2f7:#222f42;--pt-bg-f1bd4e:#d8ac53;--pt-bg-f4f5f7:#222f42;--pt-bg-f5f7fb:#222f42;--pt-bg-f6f1e5:#30291d;--pt-bg-f7f8fb:#1b2636;--pt-bg-f9fafc:#1b2636;--pt-bg-fbf2dd:#30291d;--pt-bg-fff1cf:#30291d;--pt-bg-fff3d7:#30291d;--pt-bg-fff5dd:#30291d;--pt-bg-fff6df:#30291d;--pt-bg-fff8e9:#30291d;--pt-bg-fff9e9:#30291d;--pt-bg-fff9ed:#30291d;--pt-bg-fffaf0:#30291d;--pt-bg-fffdf6:#30291d;--pt-bg-ffffff:#1b2636;--pt-line-2f333f:#334055;--pt-line-687d99:#334055;--pt-line-8b6209:#a88440;--pt-line-99690e:#a88440;--pt-line-9a6b0f:#a88440;--pt-line-9b680b:#a88440;--pt-line-a0aabd:#334055;--pt-line-a16c09:#a88440;--pt-line-a47721:#a88440;--pt-line-a5791b:#a88440;--pt-line-a6afbc:#334055;--pt-line-bac4d3:#334055;--pt-line-be891b:#a88440;--pt-line-c18b1a:#a88440;--pt-line-c78d17:#a88440;--pt-line-c9952e:#a88440;--pt-line-ccd5e2:#334055;--pt-line-d4dce8:#334055;--pt-line-d59d27:#a88440;--pt-line-d6a02c:#a88440;--pt-line-d7a233:#a88440;--pt-line-d7a43b:#a88440;--pt-line-d8dfeb:#334055;--pt-line-d9a32e:#a88440;--pt-line-d9e1ec:#334055;--pt-line-dce2eb:#334055;--pt-line-dce2ec:#334055;--pt-line-dce2ed:#334055;--pt-line-dce3ec:#334055;--pt-line-dce3ed:#334055;--pt-line-dde3ed:#334055;--pt-line-dfe3e9:#334055;--pt-line-dfe5ed:#334055;--pt-line-dfe5ee:#334055;--pt-line-e0e5ec:#334055;--pt-line-e0e5ed:#334055;--pt-line-e1e6ef:#334055;--pt-line-e1e7ef:#334055;--pt-line-e4af38:#a88440;--pt-line-e4e8ee:#334055;--pt-line-e5af36:#a88440;--pt-line-e5af3e:#a88440;--pt-line-e5cc8e:#a88440;--pt-line-e5e9ef:#334055;--pt-line-e5e9f0:#334055;--pt-line-e5e9f1:#334055;--pt-line-e6b343:#a88440;--pt-line-e8cc92:#a88440;--pt-line-e8ecf2:#334055;--pt-line-e9c66d:#a88440;--pt-line-ead9b3:#a88440;--pt-line-eadbb9:#a88440;--pt-line-eadfc8:#a88440;--pt-line-ebedf2:#334055;--pt-line-edf0f4:#334055;--pt-line-efdfbd:#a88440;--pt-line-f0dfbb:#a88440;--pt-line-ffffff:#334055;--pt-text-141c28:#edf2f7;--pt-text-182232:#edf2f7;--pt-text-222936:#edf2f7;--pt-text-29230f:#e1b65e;--pt-text-2f333f:#edf2f7;--pt-text-302710:#302710;--pt-text-302711:#302710;--pt-text-302811:#302710;--pt-text-303644:#edf2f7;--pt-text-3c485c:#edf2f7;--pt-text-42516a:#b0bdce;--pt-text-46546a:#b0bdce;--pt-text-505d70:#b0bdce;--pt-text-505f75:#b0bdce;--pt-text-526070:#b0bdce;--pt-text-526077:#b0bdce;--pt-text-554316:#e1b65e;--pt-text-586579:#b0bdce;--pt-text-606b7e:#b0bdce;--pt-text-626e83:#b0bdce;--pt-text-637085:#b0bdce;--pt-text-647084:#b0bdce;--pt-text-647087:#b0bdce;--pt-text-657085:#b0bdce;--pt-text-657185:#b0bdce;--pt-text-667185:#b0bdce;--pt-text-667388:#b0bdce;--pt-text-687487:#b0bdce;--pt-text-68758a:#b0bdce;--pt-text-697487:#b0bdce;--pt-text-69758a:#b0bdce;--pt-text-6a7587:#b0bdce;--pt-text-6b7589:#b0bdce;--pt-text-6c7789:#b0bdce;--pt-text-707b8e:#b0bdce;--pt-text-727d90:#b0bdce;--pt-text-727e90:#b0bdce;--pt-text-737d8d:#b0bdce;--pt-text-745319:#e1b65e;--pt-text-748094:#b0bdce;--pt-text-778092:#b0bdce;--pt-text-778196:#b0bdce;--pt-text-78550c:#e1b65e;--pt-text-785510:#302710;--pt-text-788296:#b0bdce;--pt-text-7a8492:#b0bdce;--pt-text-7c8697:#b0bdce;--pt-text-865c0b:#e1b65e;--pt-text-8a651c:#e1b65e;--pt-text-8c5d09:#e1b65e;--pt-text-8c641a:#e1b65e;--pt-text-91600b:#e1b65e;--pt-text-916619:#e1b65e;--pt-text-92620c:#e1b65e;--pt-text-926718:#e1b65e;--pt-text-936917:#e1b65e;--pt-text-94610a:#e1b65e;--pt-text-946b20:#e1b65e;--pt-text-946b21:#e1b65e;--pt-text-956816:#e1b65e;--pt-text-986908:#e1b65e;--pt-text-98701e:#e1b65e;--pt-text-9a6b0f:#e1b65e;--pt-text-9b701c:#e1b65e;--pt-text-a06e0b:#e1b65e;--pt-text-a2aaba:#b0bdce;--pt-text-a6afbe:#b0bdce;--pt-text-ad7a1b:#e1b65e;--pt-text-b17b12:#e1b65e;--pt-text-b67c13:#e1b65e;--pt-text-b78b34:#e1b65e;--pt-text-bc8c2a:#e1b65e;--pt-text-c18b21:#e1b65e;--pt-text-d5dfec:#edf2f7;--pt-text-dda728:#e1b65e;--pt-text-e1e6ee:#edf2f7;--pt-text-f6c44f:#e1b65e;--pt-text-ffffff:#edf2f7;}
+
+html[data-prestige-theme="dark"] #pwr-watch #WatchServers .currentLink,html[data-prestige-theme="dark"] #pwr-watch #WatchServers .currentLink *{color:#302710!important}
+@media(min-width:768px){html[data-prestige-theme] header.pm-top-head>.row{display:grid!important;grid-template-columns:minmax(300px,1fr) minmax(250px,440px) minmax(0,1fr);align-items:center;direction:rtl;margin:0!important;min-height:68px}html[data-prestige-theme] header.pm-top-head>.row>.col-sm-4:first-child{width:100%!important;display:flex!important;align-items:center;padding-right:165px!important;padding-left:10px!important;min-width:0}html[data-prestige-theme] header.pm-top-head .header-logo{position:static!important;margin:0!important;float:none!important}html[data-prestige-theme] header.pm-top-head #pm-top-search{width:100%!important;float:none!important;position:relative!important;left:auto!important;right:auto!important;margin:0!important;padding:0!important}html[data-prestige-theme] header.pm-top-head #pm-search{width:100%!important;margin:0!important}}
+
+@media(min-width:768px){
+html[data-prestige-theme] header.pm-top-head>.row:before,html[data-prestige-theme] header.pm-top-head>.row:after{display:none!important}
+html[data-prestige-theme] header.pm-top-head>.row>.col-sm-4:first-child{grid-column:1;grid-row:1;padding-right:165px!important}
+html[data-prestige-theme] header.pm-top-head #pm-top-search{grid-column:2;grid-row:1}
+html[data-prestige-theme] header.pm-top-head #navslide-toggle{position:absolute!important;right:16px!important;top:13px!important;margin:0!important}
+}
+header.pm-top-head .header-logo img{margin:0!important}
+
+/* Header polish: transparent logo and unified search field */
+html[data-prestige-theme] header.pm-top-head .header-logo,html[data-prestige-theme] header.pm-top-head .header-logo a,html[data-prestige-theme] header.pm-top-head .header-logo img{background:transparent!important;border:0!important;box-shadow:none!important}
+html[data-prestige-theme="light"] header.pm-top-head .header-logo img{filter:drop-shadow(0 0 1px #273244) drop-shadow(0 1px 1px #27324499)}
+html[data-prestige-theme] header.pm-top-head #search{position:relative!important;display:block!important;width:100%!important;height:44px!important;margin:0!important;padding:0!important;border:0!important;background:transparent!important}
+html[data-prestige-theme] header.pm-top-head #pm-search{box-sizing:border-box!important;display:block!important;width:100%!important;height:44px!important;min-height:44px!important;margin:0!important;padding:0 16px 0 58px!important;border:1px solid var(--pt-line)!important;border-radius:14px!important;background:var(--pt-soft)!important;color:var(--pt-ink)!important;box-shadow:none!important;outline:none!important;text-align:right!important;direction:rtl;font-size:14px!important;line-height:44px!important;transition:border-color .18s,box-shadow .18s}
+html[data-prestige-theme] header.pm-top-head #pm-search:focus{border-color:var(--pt-gold)!important;box-shadow:0 0 0 3px #dba62f22!important}
+html[data-prestige-theme] header.pm-top-head #search button._submit{position:absolute!important;left:5px!important;right:auto!important;top:5px!important;bottom:auto!important;display:flex!important;align-items:center;justify-content:center;width:34px!important;height:34px!important;min-width:34px!important;margin:0!important;padding:0!important;border:0!important;border-radius:10px!important;background:var(--pt-gold)!important;color:#302710!important;box-shadow:none!important;transform:none!important;cursor:pointer}
+html[data-prestige-theme] header.pm-top-head #search button._submit i{position:static!important;display:block!important;font-size:16px!important;line-height:1!important;color:inherit!important;margin:0!important;padding:0!important}
+html[data-prestige-theme] header.pm-top-head #search button._submit:focus-visible{outline:2px solid var(--pt-gold);outline-offset:3px}
+html[data-prestige-theme] header.pm-top-head .pm-search-suggestions{z-index:60;top:calc(100% + 6px)}
+html[data-prestige-theme] header.pm-top-head .pm-search-suggestions-list{border-radius:12px;overflow:hidden;border:1px solid var(--pt-line);box-shadow:0 8px 24px #0002}
+@media(max-width:767px){html[data-prestige-theme] header.pm-top-head #pm-top-search{padding-bottom:12px!important}html[data-prestige-theme] header.pm-top-head #pm-search{font-size:13px!important}}
+
+/* Watch/play related links: shared day/night palette */
+html[data-prestige-theme] #pwr-watch .pwr-internal-links{background:var(--pt-panel)!important;border:1px solid var(--pt-line)!important;border-radius:12px!important;padding:12px!important;margin:14px 0!important;box-shadow:none!important}
+html[data-prestige-theme] #pwr-watch .pwr-internal-links .catfooter{display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px!important;margin:0!important;padding:0!important;background:transparent!important;direction:rtl}
+html[data-prestige-theme] #pwr-watch .pwr-internal-links .catfooter>a{display:flex!important;align-items:center;justify-content:center;width:auto!important;min-width:0!important;height:auto!important;min-height:44px!important;margin:0!important;padding:10px 8px!important;background:var(--pt-soft)!important;color:var(--pt-ink)!important;border:1px solid var(--pt-line)!important;border-radius:8px!important;box-shadow:none!important;font-size:13px!important;font-weight:600!important;line-height:1.6!important;text-decoration:none!important;white-space:normal!important;transition:background .15s,border-color .15s,color .15s}
+html[data-prestige-theme] #pwr-watch .pwr-internal-links .catfooter>a:hover,html[data-prestige-theme] #pwr-watch .pwr-internal-links .catfooter>a:focus-visible{background:var(--pt-gold)!important;color:#302710!important;border-color:var(--pt-gold)!important;outline:2px solid var(--pt-gold);outline-offset:2px}
+html[data-prestige-theme] #pwr-watch .pwr-internal-links .catfooter>a:before,html[data-prestige-theme] #pwr-watch .pwr-internal-links .catfooter>a:after{display:none!important}
+@media(max-width:991px){html[data-prestige-theme] #pwr-watch .pwr-internal-links .catfooter{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:575px){html[data-prestige-theme] #pwr-watch .pwr-internal-links .catfooter{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Contrast audit: gold actions and secondary navigation */
+html[data-prestige-theme] #pwr-watch .pwr-button,html[data-prestige-theme] #pwr-watch .pwr-button:hover,html[data-prestige-theme] #pwr-watch .pwr-button *{color:#302710!important}
+html[data-prestige-theme="light"] :is(.psd-crumb a,.pds-crumb a,.pln-crumb a,.psd-category,.pln-series-category){color:#566276!important}
+html[data-prestige-theme="light"] #pds-detail .pds-category{color:#765014!important}
+html[data-prestige-theme="light"] #psd-series a{--pt-text-98701e:#805b16}
+html[data-prestige-theme="light"] #prs-results .pagination a{color:#566276!important}
+html[data-prestige-theme] #navslide-toggle{color:var(--pt-ink)!important}
+html[data-prestige-theme] :is(button,a,input):focus-visible{outline:2px solid var(--pt-gold);outline-offset:3px}
+html[data-prestige-theme="light"] #prs-results .pagination .active>a{color:#302710!important}
+
+/* Shared episode corner ribbon */
+html{--prestige-ribbon-bg:#26354a;--prestige-ribbon-ink:#fff}
+html[data-prestige-theme="dark"]{--prestige-ribbon-bg:#d8ac53;--prestige-ribbon-ink:#172334}
+html[data-prestige-theme] .prestige-ribbon{position:absolute!important;top:0!important;left:0!important;right:auto!important;width:86px!important;height:86px!important;overflow:hidden!important;z-index:5;pointer-events:none;display:block!important}
+html[data-prestige-theme] .prestige-ribbon>span{position:absolute!important;display:block!important;top:17px!important;left:-30px!important;width:120px!important;height:25px!important;padding:0!important;margin:0!important;transform:rotate(-45deg)!important;background:var(--prestige-ribbon-bg)!important;color:var(--prestige-ribbon-ink)!important;text-align:center!important;font-size:12px!important;font-weight:700!important;line-height:25px!important;border:0!important;border-radius:0!important;box-shadow:0 1px 3px #0003;white-space:nowrap;direction:rtl}
+html[data-prestige-theme] :is(.pgh-media,.pcg-media,.prs-image,.pln-picture,.pds-thumb,.pwr-related-poster,.pm-video-thumb){position:relative;overflow:hidden}
+html[data-prestige-theme] .pm-video-labels:has(.prestige-ribbon){position:static!important;display:block!important}
+@media(max-width:767px){html[data-prestige-theme] .prestige-ribbon{width:68px!important;height:68px!important}html[data-prestige-theme] .prestige-ribbon>span{width:100px!important;top:12px!important;left:-27px!important;height:22px!important;line-height:22px!important;font-size:10px!important}}
+
+html[data-prestige-theme="light"] :is(.pln-crumb,.psd-crumb,.pds-crumb){color:#566276!important}
+html[data-prestige-theme] #pwr-watch .pwr-breadcrumb a{display:inline-flex;align-items:center;min-height:28px;padding:2px 3px}
+html[data-prestige-theme] #pwr-watch .pwr-breadcrumb{row-gap:6px}
+.pwr-verified-badge{display:inline-flex;align-items:center;vertical-align:middle}
+html[data-prestige-theme="light"] #pds-detail .pds-crumb [aria-current],html[data-prestige-theme="light"] #pds-detail .pds-meta span,html[data-prestige-theme="light"] #pds-detail .pds-season-heading>span{color:#566276!important}
+
+@media(min-width:992px){html[data-prestige-theme] #prestige-theme-toggle{right:auto!important;left:max(29px,calc((100% - 1170px)/2 + 15px))!important;top:14px!important}}
+
+@media(min-width:992px){
+html[data-prestige-theme] header.pm-top-head>.row>.col-sm-4:first-child{position:static!important}
+html[data-prestige-theme] header.pm-top-head .header-logo{position:absolute!important;right:max(56px,calc((100% - 1170px)/2 + 15px))!important;left:auto!important;top:5px!important}
+}
+</style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="preload" href="/templates/echo/css/fonts/DroidArabicKufi.woff2" as="font" type="font/woff2" crossorigin>
+<title>نتائج البحث: &quot;dark&quot; - صفحة 1</title>
+<meta name="description" content="نتائج البحث: &quot;dark&quot; - صفحة 1" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://uo.brstej.com/templates/echo/img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://uo.brstej.com/templates/echo/img/favicon-16x16.png">
+<link rel="shortcut icon" href="https://uo.brstej.com/templates/echo/img/favicon.ico">
+<link rel="alternate" type="application/rss+xml" title="نتائج البحث: &quot;dark&quot; - صفحة 1" href="https://uo.brstej.com/rss.php" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="/templates/echo/css/pra-bootstrap-f9c4c9f99b48dd81.css">
+<link rel="stylesheet" href="/templates/echo/css/pra-echo-9c374115433367dc.css">
+<script src="/templates/echo/js/pra-jquery-fc9a93dd241f6b04.js"></script>
+
+
+
+<script type='text/javascript'>
+var hasWebP = false;
+
+// WebP Detection
+(function() {
+  var img = new Image();
+  img.onload = function() { hasWebP = !!(img.height > 0 && img.width > 0); };
+  img.onerror = function() { hasWebP = false; };
+  img.src = "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA";
+})();
+
+// Helper to load external scripts dynamically
+function jsload(url, datasetAttrs, targetSelector) {
+  var script = document.createElement("script");
+  script.type = "text/javascript";
+  script.async = true;
+  script.src = url;
+  if (datasetAttrs) {
+    for (var key in datasetAttrs) script.dataset[key] = datasetAttrs[key];
+  }
+  var target = targetSelector ? document.querySelector(targetSelector) : document.getElementsByTagName("script")[0];
+  target.parentNode.insertBefore(script, target);
+}
+
+// bLazy Library (Optimized)
+(function(root, factory) {
+  if (typeof define === "function" && define.amd) define(factory);
+  else if (typeof exports === "object") module.exports = factory();
+  else root.Blazy = factory();
+})(this, function() {
+  var srcAttr, viewport, isRetina, hasClosest;
+
+  function initElements(instance) {
+    var util = instance._util;
+    util.elements = (function(opt) {
+      var elems = [], list = opt.root.querySelectorAll(opt.selector), i = list.length;
+      while (i--) elems.unshift(list[i]);
+      return elems;
+    })(instance.options);
+
+    util.count = util.elements.length;
+    if (util.destroyed) {
+      util.destroyed = false;
+      if (instance.options.container) {
+        each(instance.options.container, function(cnt) { bindEvent(cnt, "scroll", util.validateT); });
+      }
+      bindEvent(window, "resize", util.saveViewportOffsetT);
+      bindEvent(window, "resize", util.validateT);
+      bindEvent(window, "scroll", util.validateT);
+    }
+    processImages(instance);
+  }
+
+  function processImages(instance) {
+    var util = instance._util;
+    for (var i = 0; i < util.count; i++) {
+      var elem = util.elements[i], opts = instance.options;
+      var rect = elem.getBoundingClientRect();
+      var inView = opts.container && hasClosest && elem.closest(opts.containerClass) ?
+        inViewBox(elem.closest(opts.containerClass).getBoundingClientRect(), viewport) &&
+        inViewBox(rect, { top: rect.top - opts.offset, right: rect.right + opts.offset, bottom: rect.bottom + opts.offset, left: rect.left - opts.offset }) :
+        inViewBox(rect, viewport);
+
+      if (inView || hasClass(elem, opts.successClass)) {
+        instance.load(elem);
+        util.elements.splice(i, 1);
+        util.count--;
+        i--;
+      }
+    }
+    if (util.count === 0) instance.destroy();
+  }
+
+  function inViewBox(r, v) {
+    return r.right >= v.left && r.bottom >= v.top && r.left <= v.right && r.top <= v.bottom;
+  }
+
+  function loadImage(elem, force, opts) {
+    if (!hasClass(elem, opts.successClass) && (force || opts.loadInvisible || (elem.offsetWidth > 0 && elem.offsetHeight > 0))) {
+      var dataSrc = elem.getAttribute(srcAttr) || elem.getAttribute(opts.src);
+      if (dataSrc) {
+        var sources = dataSrc.split(opts.separator);
+        var src = sources[isRetina && sources.length > 1 ? 1 : 0];
+        var srcset = elem.getAttribute(opts.srcset);
+        var isImg = elem.nodeName.toLowerCase() === "img";
+        var parent = elem.parentNode;
+        var isPicture = parent && parent.nodeName.toLowerCase() === "picture";
+
+        if (isImg || elem.src === undefined) {
+          var img = new Image();
+          var onError = function() {
+            if (opts.error) opts.error(elem, "invalid");
+            addClass(elem, opts.errorClass);
+            unbindEvent(img, "error", onError);
+            unbindEvent(img, "load", onLoad);
+          };
+          var onLoad = function() {
+            if (isImg) {
+              if (!isPicture) setSrc(elem, src, srcset);
+            } else {
+              elem.style.backgroundImage = 'url("' + src + '")';
+            }
+            onSuccess(elem, opts);
+            unbindEvent(img, "load", onLoad);
+            unbindEvent(img, "error", onError);
+          };
+
+          if (isPicture) {
+            img = elem;
+            each(parent.getElementsByTagName("source"), function(source) {
+              var sSet = opts.srcset, attr = source.getAttribute(sSet);
+              if (attr) { source.setAttribute("srcset", attr); source.removeAttribute(sSet); }
+            });
+          }
+
+          bindEvent(img, "error", onError);
+          bindEvent(img, "load", onLoad);
+          setSrc(img, src, srcset);
+        } else {
+          elem.src = src;
+          onSuccess(elem, opts);
+        }
+      } else if (elem.nodeName.toLowerCase() === "video") {
+        each(elem.getElementsByTagName("source"), function(source) {
+          var attr = source.getAttribute(opts.src);
+          if (attr) { source.setAttribute("src", attr); source.removeAttribute(opts.src); }
+        });
+        elem.load();
+        onSuccess(elem, opts);
+      } else {
+        if (opts.error) opts.error(elem, "missing");
+        addClass(elem, opts.errorClass);
+      }
+    }
+  }
+
+  function onSuccess(elem, opts) {
+    addClass(elem, opts.successClass);
+    if (opts.success) opts.success(elem);
+    elem.removeAttribute(opts.src);
+    elem.removeAttribute(opts.srcset);
+    each(opts.breakpoints, function(bp) { elem.removeAttribute(bp.src); });
+  }
+
+  function setSrc(elem, src, srcset) {
+    if (srcset) elem.setAttribute("srcset", srcset);
+    if (hasWebP && src.indexOf("lh3.googleusercontent.com") !== -1) {
+      elem.src = src + "-rw";
+    } else {
+      elem.src = src;
+    }
+  }
+
+  function hasClass(elem, cls) { return (" " + elem.className + " ").indexOf(" " + cls + " ") !== -1; }
+  function addClass(elem, cls) { if (!hasClass(elem, cls)) elem.className += " " + cls; }
+  function updateViewport(offset) {
+    viewport.bottom = (window.innerHeight || document.documentElement.clientHeight) + offset;
+    viewport.right = (window.innerWidth || document.documentElement.clientWidth) + offset;
+  }
+
+  function bindEvent(elem, event, fn) { elem.addEventListener(event, fn, { capture: false, passive: true }); }
+  function unbindEvent(elem, event, fn) { elem.removeEventListener(event, fn, { capture: false, passive: true }); }
+  function each(arr, fn) { if (arr && fn) for (var i = 0; i < arr.length && fn(arr[i], i) !== false; i++); }
+
+  function throttle(fn, minDelay, scope) {
+    var lastCall = 0;
+    return function() {
+      var now = +new Date();
+      if (now - lastCall < minDelay) return;
+      lastCall = now;
+      fn.apply(scope, arguments);
+    };
+  }
+
+  return function(options) {
+    var self = this, util = self._util = {};
+    util.elements = [];
+    util.destroyed = true;
+
+    self.options = options || {};
+    self.options.error = self.options.error || false;
+    self.options.offset = self.options.offset || 10;
+    self.options.root = self.options.root || document;
+    self.options.success = self.options.success || false;
+    self.options.selector = self.options.selector || ".lazy_load";
+    self.options.separator = self.options.separator || "|";
+    self.options.containerClass = self.options.container;
+    self.options.container = !!self.options.containerClass && document.querySelectorAll(self.options.containerClass);
+    self.options.errorClass = self.options.errorClass || "b-error";
+    self.options.breakpoints = self.options.breakpoints || false;
+    self.options.loadInvisible = self.options.loadInvisible || false;
+    self.options.successClass = self.options.successClass || "b-loaded";
+    self.options.validateDelay = self.options.validateDelay || 25;
+    self.options.saveViewportOffsetDelay = self.options.saveViewportOffsetDelay || 50;
+    self.options.srcset = self.options.srcset || "data-srcset";
+    self.options.src = srcAttr = self.options.src || "data-original";
+
+    hasClosest = !!Element.prototype.closest;
+    isRetina = window.devicePixelRatio > 1;
+    viewport = { top: 0 - self.options.offset, left: 0 - self.options.offset };
+
+    self.revalidate = function() { initElements(self); };
+    self.load = function(elem, force) {
+      if (elem.length === undefined) loadImage(elem, force, self.options);
+      else each(elem, function(e) { loadImage(e, force, self.options); });
+    };
+
+    self.destroy = function() {
+      if (self.options.container) {
+        each(self.options.container, function(cnt) { unbindEvent(cnt, "scroll", util.validateT); });
+      }
+      unbindEvent(window, "scroll", util.validateT);
+      unbindEvent(window, "resize", util.validateT);
+      unbindEvent(window, "resize", util.saveViewportOffsetT);
+      util.count = 0;
+      util.elements.length = 0;
+      util.destroyed = true;
+    };
+
+    util.validateT = throttle(function() { processImages(self); }, self.options.validateDelay, self);
+    util.saveViewportOffsetT = throttle(function() { updateViewport(self.options.offset); }, self.options.saveViewportOffsetDelay, self);
+
+    updateViewport(self.options.offset);
+    each(self.options.breakpoints, function(bp) {
+      if (bp.width >= window.screen.width) { srcAttr = bp.src; return false; }
+    });
+
+    setTimeout(function() { initElements(self); });
+  };
+});
+</script>
+
+
+
+<!--[if lt IE 9]>
+<script src="//css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+
+
+
+
+
+<style>
+.content-desktop {display: block;}
+.content-mobile {display: none;}
+@media screen and (max-width: 768px) {
+.content-desktop {display: none;}
+.content-mobile {display: block;}
+}
+</style>
+
+
+<script type="text/javascript">
+var MELODYURL = "https://uo.brstej.com";
+var MELODYURL2 = "https://uo.brstej.com";
+var TemplateP = "https://uo.brstej.com/templates/echo";
+var _LOGGEDIN_ = false;
+ 
+</script>
+
+<script type="text/javascript">
+ var pm_lang = {
+	lights_off: "إغلاق الإضاءة",
+	lights_on: "فتح الاضاءة",
+	validate_name: "الرجاء إدخال اسم",
+	validate_username: "الرجاء إدخال اسم مستخدم",
+	validate_pass: "يرجى تقديم كلمة مرور",
+	validate_captcha: "الرجاء إدخال رمز التحقق",
+	validate_email: "رجاء قم بإدخال بريد الكتروني صحيح",
+	validate_agree: "يرجى قبول سياسة الموقع",
+	validate_name_long: "يجب أن يتكون اسمك من حرفين على الأقل",
+	validate_username_long: "يجب أن يتألف اسم المستخدم من حرفين على الأقل",
+	validate_pass_long: "يجب أن تتكون كلمة المرور من 5 أحرف على الأقل",
+	validate_confirm_pass_long: "يرجى إدخال كلمة المرور نفسها على النحو الوارد أعلاه",
+	choose_category: "الرجاء اختيار تصنيف",
+	validate_select_file: "لم يتم إختيار اى ملف للرفع",
+	validate_video_title: "الرجاء إدخال عنوان لهذا الفيديو",
+	please_wait: "...جار التحميل",
+	// upload video page
+	swfupload_status_uploaded: "تم التحميل",
+	swfupload_status_pending: "تابع بقية النموذج.",
+	swfupload_status_queued: "قائمة الانتظار",
+	swfupload_status_uploading: "جار التحميل ...",
+	swfupload_file: "ملف",
+	swfupload_btn_select: "تحديد",
+	swfupload_btn_cancel: "الغاء",
+	swfupload_status_error: "خطأ",
+	swfupload_error_oversize: "حجم الملف المحدد (الفيديوهات) المحدد أكبر من الحد المسموح به",
+	swfupload_friendly_maxsize: "",
+	upload_errmsg2: "نوع الملف غير مسموح.",
+	// playlist
+	playlist_delete_confirm: "هل تريد بالتأكيد حذف قائمة التشغيل هذه نهائيا؟\n\nClick 'Cancel' للايقاف, 'OK' للحذف.",
+	playlist_delete_item_confirm: "أنت على وشك إزالة هذا الفيديو من قائمة التشغيل.\n\nClick 'Cancel' للإيقاف, 'OK' للحذف.",
+	show_more: "عرض المزيد",
+	show_less: "عرض عناصر أقل",
+	delete_video_confirmation: "هل تريد بالتأكيد حذف هذا الفيديو؟",
+	browse_all: "تصفح الكل"
+ }
+</script>
+
+
+<style type="text/css"></style>
+</head>
+<body>
+
+<!-- prestige-menu-v2 -->
+<style>
+#prestige-menu{position:fixed;inset:0 0 0 auto;margin:0;width:340px;max-width:88vw;height:100%;height:100dvh;max-height:100dvh;padding:0;border:0;background:var(--pt-bg-ffffff,#fff);color:var(--pt-text-303644,#303644);direction:rtl;text-align:right;font-family:Font,Arial,sans-serif;box-shadow:-8px 0 35px #1113;overflow:hidden;box-sizing:border-box}
+#prestige-menu::backdrop{background:rgba(21,26,35,.62)}
+#prestige-menu *{box-sizing:border-box}#prestige-menu a{color:inherit;text-decoration:none}#prestige-menu button{font:inherit;cursor:pointer}#prestige-menu .psm-top{display:flex;align-items:center;justify-content:space-between;height:82px;padding:16px 22px;border-bottom:1px solid var(--pt-line-e8ecf2,#e8ecf2)}#prestige-menu .psm-logo{width:118px;height:46px;object-fit:contain;background:var(--pt-bg-303440,#303440);border-radius:5px;padding:4px}#prestige-menu .psm-close{width:38px;height:38px;border:0;border-radius:7px;background:var(--pt-bg-f0f2f6,#f0f2f6);color:var(--pt-text-303644,#303644);font:28px Arial}#prestige-menu .psm-scroll{height:calc(100% - 82px);overflow-y:auto;overscroll-behavior:contain;padding:16px 16px 24px;scrollbar-width:thin;scrollbar-color:#c9cfda transparent}#prestige-menu ul{list-style:none;margin:0;padding:0}#prestige-menu li{position:relative;margin:0;padding:0;float:none!important;z-index:auto!important}#prestige-menu li>a,#prestige-menu .psm-link{display:flex;align-items:center;gap:12px;min-height:48px;padding:10px 12px;border-radius:6px;font-size:14px;line-height:1.7;white-space:normal}#prestige-menu b{font-weight:400}#prestige-menu a:hover{background:var(--pt-bg-f5f7fb,#f5f7fb)}#prestige-menu a[aria-current=page]{color:var(--pt-text-865c0b,#865c0b);background:var(--pt-bg-fbf2dd,#fbf2dd);border-right:3px solid var(--pt-line-d9a32e,#d9a32e)}#prestige-menu .psm-heading{font-size:12px;color:var(--pt-text-68758a,#68758a);margin:17px 0 8px;padding:16px 12px 0;border-top:1px solid var(--pt-line-e8ecf2,#e8ecf2)}#prestige-menu svg{margin:0!important;width:21px;height:21px;flex:0 0 21px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}#prestige-menu .psm-expand{position:absolute;left:0;top:2px;width:44px;height:44px;background:transparent;border:0;border-radius:6px;color:var(--pt-text-657185,#657185);font:22px Arial}#prestige-menu .psm-expand[aria-expanded=true]{transform:rotate(-90deg)}#prestige-menu .psm-has-children>a{padding-left:47px}#prestige-menu .dropdown-menu{position:static!important;float:none!important;min-width:0;width:100%;border:0;box-shadow:none;background:var(--pt-bg-f7f8fb,#f7f8fb);border-radius:6px;padding:5px 10px;margin:3px 0 8px;display:block}#prestige-menu [hidden]{display:none!important}#prestige-menu .dropdown-menu a{font-size:12px;min-height:44px;padding:8px 12px}#prestige-menu .psm-seasons{margin:18px 0;border:0}#prestige-menu summary{display:flex;align-items:center;gap:12px;cursor:pointer;list-style:none;min-height:46px;border-radius:6px;padding:10px 12px;background:var(--pt-bg-fbf2dd,#fbf2dd);color:var(--pt-text-865c0b,#865c0b);font-size:14px}#prestige-menu summary::-webkit-details-marker{display:none}#prestige-menu summary:after{content:'⌄';margin-right:auto}#prestige-menu .psm-years{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding-top:10px}#prestige-menu .psm-years li>a{justify-content:center;border:1px solid var(--pt-line-dce2ec,#dce2ec);min-height:44px;font:14px Arial;padding:8px}#prestige-menu .psm-all{justify-content:center;border:1px solid var(--pt-line-bac4d3,#bac4d3);margin-top:20px}#prestige-menu :is(a,button,summary):focus-visible{outline:2px solid var(--pt-line-a16c09,#a16c09);outline-offset:2px}html.psm-open,html.psm-open body{overflow:hidden!important}@media(max-width:480px){#prestige-menu{width:330px}#prestige-menu .psm-top{height:74px}#prestige-menu .psm-scroll{height:calc(100% - 74px);padding:12px 12px 22px}}
+</style>
+<dialog id="prestige-menu" aria-label="القائمة الرئيسية"><div class="psm-top"><a href="https://uo.brstej.com/home03" aria-label="موقع برستيج"><img class="psm-logo" src="/22.png" width="118" height="46" alt="برستيج"></a><button type="button" class="psm-close" aria-label="إغلاق القائمة">×</button></div><nav class="psm-scroll" aria-label="روابط الموقع">
+<a class="psm-link" data-psm-icon="home" href="https://uo.brstej.com/home03">الرئيسية</a>
+<a class="psm-link" data-psm-icon="grid" href="https://uo.brstej.com/cat03.php">الأقسام</a>
+<a class="psm-link" data-psm-icon="film" href="https://uo.brstej.com/newvideo.php">أحدث الإضافات</a>
+<h2 class="psm-heading">تصفّح الأقسام</h2><ul class="psm-categories"><li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/cat03.php?cat=prss7-2025" class="sub_ca"><b> مسلسلات برستيج </b> </a>
+<ul class='dropdown-menu'>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=rm42-2022" class="sub_ca">مسلسلات رمضان 2022 </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=rmdan31-2021" class="sub_ca">مسلسلات 2021 </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=2ind2-2025" class="sub_ca">مسلسلات هندية </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=anmei" class="sub_ca">مسلسلات انمي </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=asia" class="sub_ca">مسلسلات اسيوية </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=english1-2025" class="sub_ca">مسلسلات اجنبية </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=wait" class="sub_ca">حلقات التجهيز </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=ramdan1-2024" class="sub_ca">مسلسلات رمضان 2024 </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=ty9-2025" class="sub_ca">مسلسلات تركية 2026 </a>	</li>
+</ul>
+</li>
+<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=movies2-2224" class="sub_ca"><b> افلام </b> </a>
+<ul class='dropdown-menu'>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=aflamajnby3-2024" class="sub_ca">افلام اجنبية </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=aflam02-2024" class="sub_ca">افلام عربية </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=turkish3-movies2024" class="sub_ca">افلام تركية </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=anime1" class="sub_ca">افلام انمي </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=hindi1-moviess" class="sub_ca">افلام هندية </a>	</li>
+</ul>
+</li>
+<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=tv4-2024" class="sub_ca"><b> برامج ومنوعات تلفزيونية </b> </a></li>
+<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=syy5-2025" class="sub_ca"><b> مسلسلات شامية 2026 </b> </a>
+<ul class='dropdown-menu'>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=3arosberot" class="sub_ca">عروس بيروت </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=greeb" class="sub_ca">الغريب </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=hipa" class="sub_ca">الهيبة </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=roo7" class="sub_ca">رائحة الروح </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=whm" class="sub_ca">وهم </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=haroon" class="sub_ca">هارون الرشيد </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=warda" class="sub_ca">وردة شامية </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=jrhh" class="sub_ca">جرح الورد </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=waqwaq" class="sub_ca">الواق واق </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=fwda" class="sub_ca">فوضي </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=wahdn" class="sub_ca">وحدن </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=snabl" class="sub_ca">بوح السنابل </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=hopp" class="sub_ca">الحب الحقيقي </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=hadota" class="sub_ca">حدوثة حب </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=julia" class="sub_ca">جوليا </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=tango" class="sub_ca">تانغو </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=mhlp" class="sub_ca">المهلب بن ابي صفرة </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=msheet" class="sub_ca">ومشيت </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=noof" class="sub_ca">نوف </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=3ater" class="sub_ca">عطر الشام </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=rozna" class="sub_ca">روزنا </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=qsma" class="sub_ca">قسمة وحب </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=street" class="sub_ca">طريق </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=hwajs" class="sub_ca">هواجس عابرة </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=berioot" class="sub_ca">بيروت سيتي </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=coma" class="sub_ca">كوما </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=forsa" class="sub_ca">الفرصة الاخيرة </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=5wnss" class="sub_ca">خمسة ونص </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=dof3a" class="sub_ca">دفعة القاهرة </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=mmalkalnar" class="sub_ca">ممالك النار </a>	</li>
+</ul>
+</li>
+<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=arab8-2025" class="sub_ca"><b> مسلسلات عربية 2026 </b> </a></li>
+<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=5a7-2024" class="sub_ca"><b> مسلسلات خليجية 2026 </b> </a>
+<ul class='dropdown-menu'>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=3aswaf" class="sub_ca">العاصوف </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=zkriat" class="sub_ca">ذكريات لا تموت </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=klamasfr" class="sub_ca">كلام اصفر </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=amany" class="sub_ca">امانى العمر </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=9fb" class="sub_ca">التاسع من فبراير </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=sharra" class="sub_ca">عبرة شارع </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=atrooh" class="sub_ca">عطر الروح </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=5taia" class="sub_ca">الخطايا العشرة </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=made" class="sub_ca">شيء من الماضي </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=7saa" class="sub_ca">مع حصة قلم </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=antzar" class="sub_ca">محطة انتظار </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=5afe" class="sub_ca">الخافي اعظم </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=3mree" class="sub_ca">خذيت من عمري و عطيت </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=kbroha" class="sub_ca">كبروها </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=mwajha" class="sub_ca">المواجهة </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=awad" class="sub_ca">عوض ابا عن جد </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=roteen" class="sub_ca">روتين </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=azwate" class="sub_ca">عزوتي </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=3amood" class="sub_ca">عمود البيت </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=a5ar" class="sub_ca">اخر شتا </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=nawaea" class="sub_ca">هم نوايا </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=elbrans2024" class="sub_ca">مسلسل البرنس </a>	</li>
+</ul>
+</li>
+<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=eg8-2025" class="sub_ca"><b> مسلسلات مصرية 2026 </b> </a>
+<ul class='dropdown-menu'>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=nsr1" class="sub_ca">نسر الصعيد </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=3walm" class="sub_ca">عوالم خفية </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=sek3alaa5atk" class="sub_ca">سك على إخواتك </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=klbsh" class="sub_ca">كلبش </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=ayop" class="sub_ca">ايوب </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=rheem" class="sub_ca">رحيم </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=abomar" class="sub_ca">ابو عمر المصري </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=ammrw" class="sub_ca">امر واقع </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=ddmjhol" class="sub_ca">ضد مجهول </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=famly" class="sub_ca">بالحجم العائلي </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=qwaal" class="sub_ca">لدينا اقوال اخرى </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=a5tffa" class="sub_ca">اختفاء </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=azmy" class="sub_ca">عزمى واشجان </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=wsya" class="sub_ca">الوصية </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=lyale" class="sub_ca">ليالي اوجيني </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=fwaa" class="sub_ca">فوق السحاب </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=masseg" class="sub_ca">رسايل </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=qanon" class="sub_ca">قانون عمر </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=mmno3" class="sub_ca">ممنوع الاقتراب او التصوير </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=taaea" class="sub_ca">طايع </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=mlika" class="sub_ca">مليكة </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=roome" class="sub_ca">ربع رومي </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=karma" class="sub_ca">لعنة كارما </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=r7la" class="sub_ca">الرحلة </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=5faa" class="sub_ca">خفة يد </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=seham" class="sub_ca">السهام المارقة </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=yammyat" class="sub_ca">يوميات زوجة مفروسة اوي الموسم 4 </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=abwab" class="sub_ca">ابواب الشك </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=home" class="sub_ca">بيت السلايف </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=hamdeen" class="sub_ca">سرايا حمدين </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=godfather" class="sub_ca">الاب الروحي </a>	</li>
+	<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=ZLAL" class="sub_ca">زلزال </a>	</li>
+</ul>
+</li>
+<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=ramda1-2023" class="sub_ca"><b> مسلسلات رمضان 2023 </b> </a></li>
+<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=ramadan2-2025" class="sub_ca"><b> مسلسلات رمضان 2025 </b> </a></li>
+<li class="sub_ca" style="z-index: 999;"><a href="https://uo.brstej.com/category.php?cat=ramdan2026" class="sub_ca"><b> مسلسلات رمضان 2026 </b> </a></li>
+</ul>
+<details class="psm-seasons" open hidden><summary data-psm-icon="moon">مواسم رمضان</summary><ul class="psm-years"></ul></details>
+<a class="psm-link psm-all" href="https://uo.brstej.com/cat03.php">عرض كل الأقسام ←</a>
+</nav></dialog>
+<script>
+(function(){'use strict';function init(){var menu=document.getElementById('prestige-menu'),toggle=document.getElementById('navslide-toggle');if(!menu||!toggle)return;var paths={home:'M3 10 12 3l9 7M5 9v12h5v-7h4v7h5V9',grid:'M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z',film:'M3 5h18v15H3zM3 10h18M7 5l3 5M14 5l3 5',tv:'M3 7h18v14H3zM8 3l4 4 4-4',moon:'M20 15A9 9 0 0 1 9 3a9 9 0 1 0 11 12'};function icon(el,key){var s=document.createElementNS('http://www.w3.org/2000/svg','svg');s.setAttribute('viewBox','0 0 24 24');s.setAttribute('aria-hidden','true');var p=document.createElementNS(s.namespaceURI,'path');p.setAttribute('d',paths[key]||paths.tv);s.appendChild(p);el.prepend(s);}menu.querySelectorAll('[data-psm-icon]').forEach(function(a){icon(a,a.dataset.psmIcon);});var seasons=menu.querySelector('.psm-seasons'),years=menu.querySelector('.psm-years');Array.from(menu.querySelector('.psm-categories').children).forEach(function(li){var a=li.querySelector(':scope > a');if(!a)return;var name=a.textContent.trim();if(name.indexOf('رمضان')!==-1&&!li.querySelector('ul')){var year=name.match(/20\d{2}/);if(year){a.textContent=year[0];a.setAttribute('aria-label',name);}years.appendChild(li);seasons.hidden=false;}else{icon(a,/افلام|أفلام/.test(name)?'film':'tv');}});menu.querySelectorAll('li').forEach(function(li,i){var list=li.querySelector(':scope > ul'),a=li.querySelector(':scope > a');if(!list||!a)return;li.classList.add('psm-has-children');list.hidden=true;list.id='psm-sub-'+i;var b=document.createElement('button');b.type='button';b.className='psm-expand';b.textContent='‹';b.setAttribute('aria-label','الأقسام الفرعية: '+a.textContent.trim());b.setAttribute('aria-controls',list.id);b.setAttribute('aria-expanded','false');b.addEventListener('click',function(){list.hidden=!list.hidden;b.setAttribute('aria-expanded',String(!list.hidden));});li.insertBefore(b,list);});var here=new URL(location.href);menu.querySelectorAll('a[href]').forEach(function(a){var u=new URL(a.href);if(u.origin===here.origin&&u.pathname===here.pathname&&u.search===here.search)a.setAttribute('aria-current','page');});['data-toggle','data-target','data-canvas'].forEach(function(n){toggle.removeAttribute(n);});toggle.href='#prestige-menu';toggle.setAttribute('aria-controls','prestige-menu');toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','فتح القائمة الرئيسية');var savedFocus;function close(){if(menu.open)menu.close();}toggle.addEventListener('click',function(e){e.preventDefault();e.stopImmediatePropagation();savedFocus=document.activeElement;menu.showModal();document.documentElement.classList.add('psm-open');toggle.setAttribute('aria-expanded','true');menu.querySelector('.psm-close').focus();},true);menu.querySelector('.psm-close').addEventListener('click',close);menu.addEventListener('click',function(e){if(e.target===menu){var r=menu.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)close();}});menu.addEventListener('close',function(){document.documentElement.classList.remove('psm-open');toggle.setAttribute('aria-expanded','false');toggle.classList.remove('is-active');if(savedFocus)savedFocus.focus();});}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();})();
+</script>
+
+<div class="container-fluid no-padding">
+<header class="pm-top-head header-bg">
+	<div class="row">
+		<div class="col-xs-7 col-sm-4 col-md-4">
+			<a href="#myNavmenu" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body" id="navslide-toggle"><span>قائمة العرض</span></a>
+			<div class="header-logo">
+							<a href="https://uo.brstej.com/index.php" rel="home"><img src="/22.png" style="width: 118px;" alt="موقع برستيج" title="موقع برستيج" border="0" /></a>
+						</div>
+		</div>
+		<div class="hidden-xs col-sm-4 col-md-4" id="pm-top-search">
+						
+<form action="https://uo.brstej.com/search.php" class="search inline" method="get" id="search" name="search" onsubmit="return validateSearch('true');" _lpchecked="1">
+		<input class="q" id="pm-search" size="16" name="keywords" type="text" aria-label="ابحث عن فيلم أو مسلسل" placeholder="ابحث عن فيلم او مسلسل..." x-webkit-speech="x-webkit-speech" onwebkitspeechchange="this.form.submit();" onblur="fill();" autocomplete="off">
+		<input class="form-control" id="pm-video-id" size="16" name="video-id" type="hidden">
+		<button class="i-srch p _submit vam" type="submit" aria-label="بحث"><i class="fa fa-search"></i></button>
+</form>
+				
+			<div class="pm-search-suggestions hide-me">
+				<ul class="pm-search-suggestions-list list-unstyled"></ul>
+			</div>
+					</div>
+
+		
+		<div class="col-xs-5 hidden-sm hidden-md hidden-lg">
+			<ul class="list-inline navbar-pmuser">
+				<li><a href="#pm-top-search" id="pm-top-mobile-search-show" class="" title="ابحث عن فيلم او مسلسل او ممثل "><i class="mico mico-search"></i></a></li>
+			</ul>
+		</div>
+	</div><!--.row-->
+</header>
+
+
+	<div class="modal" id="modal-login-form">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">اغلاق</span></button>
+				<h4 class="modal-title">تسجيل الدخول</h4>
+			</div>
+			<div class="modal-body">
+				
+				<form name="login_form" id="login-form" method="post" action="https://uo.brstej.com/login.php">
+	<div class="form-group">
+		<label for="username">اسم المستخدم أو البريد الإلكتروني</label>
+		<input type="text" class="form-control" name="username" value="" placeholder="اسم المستخدم أو البريد الإلكتروني">
+	</div>
+	<div class="form-group">
+		<label for="pass">كلمة المرور</label>
+		<input type="password" class="form-control" id="pass" name="pass" maxlength="32" autocomplete="off" placeholder="كلمة المرور">
+	</div>
+	<div class="form-group">
+		<button type="submit" name="Login" value="تسجيل دخول" class="btn btn-success btn-with-loader" data-loading-text="تسجيل الدخول...">تسجيل دخول</button> 
+		<small><a href="https://uo.brstej.com/login.php?do=forgot_pass">نسيت كلمة السر؟</a></small>
+	</div>
+</form>							</div>
+		</div>
+	</div>
+</div>	
+<a id="top"></a>
+
+<div class="mastcontent-wrap">
+<style>
+#prs-results{background:var(--pt-bg-f5f7fb,#f5f7fb);color:var(--pt-text-303644,#303644);font-family:Font,Arial,sans-serif;padding:26px 24px 40px;text-align:right;min-height:65vh}#prs-results *{box-sizing:border-box}#prs-results .prs-shell{max-width:1170px;margin:auto}#prs-results a{color:inherit;text-decoration:none}#prs-results a:hover{text-decoration:underline;text-underline-offset:3px}#prs-results .prs-breadcrumb{display:flex;gap:9px;color:var(--pt-text-637085,#637085);font-size:12px;margin-bottom:24px}#prs-results .prs-intro h1{font-size:28px;line-height:1.7;margin:0 0 15px;padding-bottom:12px;position:relative;overflow-wrap:anywhere}#prs-results .prs-intro h1:after{content:'';position:absolute;right:0;bottom:0;width:35px;height:3px;background:var(--pt-bg-dfa933,#dfa933)}#prs-results .prs-intro p{color:var(--pt-text-657185,#657185);font-size:14px;margin:8px 0 18px}#prs-results .prs-gold{color:var(--pt-text-b67c13,#b67c13)}#prs-results .prs-search{display:flex;gap:10px;margin:24px 0 28px}#prs-results .prs-search input{width:100%;min-width:0;height:50px;border:1px solid var(--pt-line-d9e1ec,#d9e1ec);border-radius:6px;background:var(--pt-bg-ffffff,#fff);color:var(--pt-text-303644,#303644);font:16px Font,Arial,sans-serif;padding:9px 15px;margin:0;box-shadow:none}#prs-results .prs-search button{border:1px solid var(--pt-line-d59d27,#d59d27);background:var(--pt-bg-e4af38,#e4af38);color:var(--pt-text-302710,#302710);min-width:86px;border-radius:6px;font:14px Font,Arial,sans-serif;padding:10px 18px}#prs-results .prs-tagbar{display:flex;align-items:center;justify-content:space-between;gap:15px;background:var(--pt-bg-ffffff,#fff);border:1px solid var(--pt-line-dce3ed,#dce3ed);border-radius:6px;padding:18px;margin:22px 0 26px;font-size:13px}#prs-results .prs-tagbar>span{background:var(--pt-bg-f6f1e5,#f6f1e5);padding:7px 12px;border-radius:5px;overflow-wrap:anywhere}#prs-results .prs-tagbar>a{color:var(--pt-text-8c5d09,#8c5d09);white-space:nowrap}#prs-results .prs-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:20px 0 18px}#prs-results .prs-toolbar h2{font-size:20px;margin:0;font-weight:700}#prs-results .prs-toggle{display:flex;gap:5px}#prs-results .prs-toggle[hidden]{display:flex;visibility:hidden}#prs-results .prs-toggle button{width:44px;height:44px;padding:0;border:1px solid var(--pt-line-d4dce8,#d4dce8);background:var(--pt-bg-ffffff,#fff);border-radius:5px;color:var(--pt-text-505f75,#505f75);font:26px Arial;cursor:pointer}#prs-results .prs-toggle button[aria-pressed=true]{background:var(--pt-bg-e4af38,#e4af38);color:var(--pt-text-302710,#302710);border-color:var(--pt-line-d59d27,#d59d27)}#prs-results .prs-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:25px 20px;list-style:none;margin:0;padding:0}#prs-results .prs-grid>li{list-style:none;min-width:0;margin:0;padding:0}#prs-results .prs-card{min-width:0}#prs-results .prs-image{display:block;position:relative;aspect-ratio:16/9;border-radius:6px;overflow:hidden;background:var(--pt-bg-e4e9f1,#e4e9f1)}#prs-results picture{display:block;width:100%;height:100%}#prs-results .prs-image img{width:100%;height:100%;max-width:100%;object-fit:cover;display:block;margin:0}#prs-results .prs-duration,#prs-results .prs-episode{position:absolute;background:#222c3de8;color:var(--pt-text-ffffff,#fff);font:12px Arial;padding:4px 6px;border-radius:4px}#prs-results .prs-duration{bottom:7px;left:7px}#prs-results .prs-episode{right:7px;top:7px;border:1px solid var(--pt-line-e4af38,#e4af38)}#prs-results .prs-caption{text-align:center;padding:10px 4px 0}#prs-results .prs-caption h3{font-size:15px;line-height:1.9;font-weight:700;margin:0;overflow-wrap:anywhere}#prs-results .prs-label{font-size:11px;color:var(--pt-text-667388,#667388)}#prs-results .prs-empty{text-align:center;background:var(--pt-bg-ffffff,#fff);border:1px solid var(--pt-line-dce3ed,#dce3ed);border-radius:7px;padding:36px 18px;margin:25px 0}#prs-results .prs-empty h2{font-size:21px}#prs-results .prs-empty a{display:inline-block;background:var(--pt-bg-e4af38,#e4af38);color:var(--pt-text-302710,#302710);border-radius:5px;padding:9px 18px;margin-top:12px}#prs-results .prs-pagination{margin-top:30px}#prs-results .prs-pagination .row{margin:0}#prs-results .prs-pagination .col-md-12{padding:0}#prs-results .pagination{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:0;padding:0;list-style:none}#prs-results .pagination li{display:block;margin:0}#prs-results .pagination a{float:none;display:flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;margin:0;padding:7px 12px;border:1px solid var(--pt-line-d4dce8,#d4dce8);border-radius:5px;background:var(--pt-bg-ffffff,#fff);color:var(--pt-text-42516a,#42516a)}#prs-results .pagination .active a{background:var(--pt-bg-e4af38,#e4af38);color:var(--pt-text-302710,#302710);border-color:var(--pt-line-d59d27,#d59d27)}#prs-results .pagination .disabled a{color:var(--pt-text-737d8d,#737d8d);background:var(--pt-bg-edf0f5,#edf0f5);pointer-events:none}#prs-results .prs-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}#prs-results :is(a,button,input):focus-visible{outline:2px solid var(--pt-line-9b680b,#9b680b);outline-offset:3px}#prs-results.prs-list .prs-grid{grid-template-columns:1fr}#prs-results.prs-list .prs-card{display:flex;align-items:center;gap:20px;background:var(--pt-bg-ffffff,#fff);border:1px solid var(--pt-line-dce3ed,#dce3ed);padding:10px;border-radius:6px}#prs-results.prs-list .prs-image{width:240px;flex:none}#prs-results.prs-list .prs-caption{text-align:right;padding:0}
+@media(max-width:767px){#prs-results{padding:18px 14px 28px}#prs-results .prs-breadcrumb{font-size:10px;margin-bottom:18px}#prs-results .prs-intro h1{font-size:23px}#prs-results .prs-intro p{font-size:12px;line-height:1.8}#prs-results .prs-search{gap:8px;margin:20px 0}#prs-results .prs-search input{height:46px;padding:8px 11px}#prs-results .prs-search button{min-width:65px;padding:8px 12px}#prs-results .prs-tagbar{padding:12px 0;background:transparent;border:0;border-bottom:1px solid var(--pt-line-dce3ed,#dce3ed);font-size:11px;gap:8px}#prs-results .prs-tagbar>span{padding:6px 9px}#prs-results .prs-toolbar h2{font-size:15px}#prs-results .prs-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 12px}#prs-results .prs-caption{padding:7px 1px 0}#prs-results .prs-caption h3{font-size:12px;line-height:1.8}#prs-results .prs-duration,#prs-results .prs-episode{font-size:10px;padding:3px 4px}#prs-results .prs-pagination{margin-top:25px}#prs-results .pagination{gap:5px}#prs-results .pagination a{padding:7px 10px}#prs-results.prs-list .prs-image{width:40%}#prs-results.prs-list .prs-card{gap:12px;padding:8px}}
+@media(max-width:767px){
+  body:has(#prs-results) header.pm-top-head{
+    display:block;height:112px;min-height:112px;max-height:none;
+    padding:7px 12px 10px;overflow:visible;
+  }
+  body:has(#prs-results) header.pm-top-head>.row{
+    display:grid;position:relative;grid-template-columns:minmax(0,1fr);grid-template-rows:44px 40px;
+    gap:8px;width:100%;height:92px;margin:0;padding:0;
+  }
+  body:has(#prs-results) header.pm-top-head>.row:before,body:has(#prs-results) header.pm-top-head>.row:after{display:none;content:none}
+  body:has(#prs-results) header.pm-top-head>.row>.col-xs-7.col-sm-4.col-md-4{
+    display:flex;direction:ltr;align-items:center;justify-content:space-between;
+    grid-column:1;grid-row:1;float:none;width:100%;height:44px;
+    min-width:0;margin:0;padding:0;
+  }
+  body:has(#prs-results) header.pm-top-head .header-logo{display:block;flex:0 0 110px;width:110px;height:44px;margin:0;padding:0}
+  body:has(#prs-results) header.pm-top-head .header-logo>a{display:block;width:100%;height:100%}
+  body:has(#prs-results) header.pm-top-head .header-logo img{
+    display:block;float:none;width:110px!important;height:44px;max-width:100%;
+    margin:0;padding:0;object-fit:contain;
+  }
+  body:has(#prs-results) header.pm-top-head #navslide-toggle{
+    display:block;flex:0 0 44px;width:44px;height:44px;margin:0;padding:0;
+  }
+  body:has(#prs-results) header.pm-top-head #navslide-toggle span{top:21px;left:9px;right:9px}
+  body:has(#prs-results) header.pm-top-head #navslide-toggle:focus-visible{outline:2px solid var(--pt-line-e5af3e,#e5af3e);outline-offset:1px}
+  body:has(#prs-results) header.pm-top-head #pm-top-search,body:has(#prs-results) header.pm-top-head #pm-top-search.show-me{
+    display:block!important;position:relative!important;grid-column:1;grid-row:2;
+    float:none;width:100%!important;max-width:100%;height:40px;min-width:0;
+    margin:0;padding:0;top:auto;bottom:auto;left:auto;right:auto;
+  }
+  /* Hide only the redundant search toggle; retain any signed-in controls. */
+  body:has(#prs-results) header.pm-top-head #pm-top-mobile-search-show{display:none}
+  body:has(#prs-results) header.pm-top-head>.row>.col-xs-5.hidden-sm.hidden-md.hidden-lg{
+    position:absolute;top:0;left:48px;right:118px;float:none;
+    display:flex;align-items:center;justify-content:center;width:auto;min-width:0;
+    min-height:44px;margin:0;padding:0;
+  }
+  body:has(#prs-results) header.pm-top-head>.row>.col-xs-5.hidden-sm.hidden-md.hidden-lg .navbar-pmuser{margin:0;padding:0;max-width:100%}
+  body:has(#prs-results) header.pm-top-head form#search{position:relative;display:block;width:100%;height:40px;margin:0;padding:0}
+  body:has(#prs-results) header.pm-top-head form#search #pm-search{
+    display:block;width:100%;max-width:100%;height:40px;min-width:0;
+    margin:0;padding:7px 12px 7px 44px;border-radius:5px;
+    font-size:16px;line-height:24px;text-align:right;
+  }
+  body:has(#prs-results) header.pm-top-head form#search #pm-search.hasText{padding-right:32px;margin:0}
+  body:has(#prs-results) header.pm-top-head form#search button._submit{
+    position:absolute;top:0;bottom:auto;left:0;right:auto;
+    width:40px;height:40px;margin:0;padding:0;line-height:40px;
+  }
+  body:has(#prs-results) header.pm-top-head #pm-top-search .pm-search-suggestions{
+    position:absolute;top:100%;left:0;right:0;width:100%;margin:0;z-index:5;
+  }
+  body:has(#prs-results) header.pm-top-head #pm-top-search .pm-search-suggestions-list{
+    top:0;left:0;right:0;width:100%;max-width:100%;max-height:55vh;
+    margin:0;overflow-y:auto;overscroll-behavior-y:contain;
+  }
+  body:has(#prs-results) header.pm-top-head #pm-top-search .pm-search-suggestions-list li a{
+    max-width:100%;white-space:normal;overflow-wrap:anywhere;line-height:1.45;
+  }
+  /* This replaces the observed 70px spacer; do not also add body padding. */
+  body:has(#prs-results) .mastcontent-wrap{margin-top:112px}
+
+}
+
+</style>
+<!-- prestige-results-v2 -->
+<main id="prs-results" dir="rtl"><div class="prs-shell">
+<nav class="prs-breadcrumb" aria-label="مسار الصفحة"><a href="https://uo.brstej.com/home03">الرئيسية</a><span aria-hidden="true">/</span><span>البحث</span></nav>
+<header class="prs-intro"><h1>نتائج البحث عن «dark»</h1></header>
+<form class="prs-search" action="https://uo.brstej.com/search.php" method="get" role="search" aria-label="بحث ضمن الموقع"><label class="prs-sr" for="prs-keywords">كلمة البحث</label><input id="prs-keywords" type="search" name="keywords" value="dark" placeholder="ابحث عن فيلم أو مسلسل" required><button type="submit">بحث</button></form>
+<div class="prs-toolbar"><h2>النتائج المطابقة</h2><div class="prs-toggle" role="group" aria-label="طريقة عرض النتائج" hidden><button type="button" data-prs-view="grid" aria-label="عرض شبكي" aria-pressed="true">▦</button><button type="button" data-prs-view="list" aria-label="عرض قائمة" aria-pressed="false">☷</button></div></div>
+<ul class="prs-grid"><li><article class="prs-card"><a class="prs-image" href="https://uo.brstej.com/watch.php?vid=757f92e8b" tabindex="-1" aria-hidden="true"><picture><img src="https://uo.brstej.com/uploads/thumbs/757f92e8b-1.jpg" alt="" width="480" height="270" loading="eager" fetchpriority="high" decoding="async" referrerpolicy="no-referrer"></picture><span class="prs-duration">57:48</span><span class="prs-episode">1</span></a><div class="prs-caption"><h3><a href="https://uo.brstej.com/watch.php?vid=757f92e8b"> مسلسل Dark الموسم 1 الحلقة 1 الاولى مترجمة</a></h3></div></article></li><li><article class="prs-card"><a class="prs-image" href="https://uo.brstej.com/watch.php?vid=a535a21e0" tabindex="-1" aria-hidden="true"><picture><img src="https://uo.brstej.com/uploads/thumbs/9d242bc9f-1.jpg" alt="" width="480" height="270" loading="eager"  decoding="async" referrerpolicy="no-referrer"></picture><span class="prs-duration">52:29</span><span class="prs-episode">7</span></a><div class="prs-caption"><h3><a href="https://uo.brstej.com/watch.php?vid=a535a21e0"> مسلسل Dark الموسم 2 الحلقة 7 السابعة مترجمة</a></h3></div></article></li><li><article class="prs-card"><a class="prs-image" href="https://uo.brstej.com/watch.php?vid=bf42c7805" tabindex="-1" aria-hidden="true"><picture><img src="https://uo.brstej.com/uploads/thumbs/757f92e8b-1.jpg" alt="" width="480" height="270" loading="lazy"  decoding="async" referrerpolicy="no-referrer"></picture><span class="prs-duration">59:54</span><span class="prs-episode">2</span></a><div class="prs-caption"><h3><a href="https://uo.brstej.com/watch.php?vid=bf42c7805"> مسلسل Dark الموسم 1 الحلقة 2 الثانية مترجمة</a></h3></div></article></li><li><article class="prs-card"><a class="prs-image" href="https://uo.brstej.com/watch.php?vid=e9fad94c7" tabindex="-1" aria-hidden="true"><picture><img src="https://uo.brstej.com/uploads/thumbs/9d242bc9f-1.jpg" alt="" width="480" height="270" loading="lazy"  decoding="async" referrerpolicy="no-referrer"></picture><span class="prs-duration">1:00:59</span><span class="prs-episode">8</span></a><div class="prs-caption"><h3><a href="https://uo.brstej.com/watch.php?vid=e9fad94c7"> مسلسل Dark الموسم 2 الحلقة 8 الثامنة والاخيرة مترجمة</a></h3></div></article></li><li><article class="prs-card"><a class="prs-image" href="https://uo.brstej.com/watch.php?vid=98a6fa7fa" tabindex="-1" aria-hidden="true"><picture><img src="https://uo.brstej.com/uploads/thumbs/757f92e8b-1.jpg" alt="" width="480" height="270" loading="lazy"  decoding="async" referrerpolicy="no-referrer"></picture><span class="prs-duration">56:23</span><span class="prs-episode">3</span></a><div class="prs-caption"><h3><a href="https://uo.brstej.com/watch.php?vid=98a6fa7fa"> مسلسل Dark الموسم 1 الحلقة 3 الثالثة مترجمة</a></h3></div></article></li><li><article class="prs-card"><a class="prs-image" href="https://uo.brstej.com/watch.php?vid=e81fe13a2" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="/uploads/prestige-home-images/1a1d22c4de2a9afa983c3f0bb87c003f56bee1a1943776697f03e81779f28fd3-320.webp 320w, /uploads/prestige-home-images/1a1d22c4de2a9afa983c3f0bb87c003f56bee1a1943776697f03e81779f28fd3-480.webp 480w, /uploads/prestige-home-images/1a1d22c4de2a9afa983c3f0bb87c003f56bee1a1943776697f03e81779f28fd3-640.webp 640w"><img src="https://uo.brstej.com/uploads/thumbs/e81fe13a2-1.jpg" alt="" width="480" height="270" loading="lazy"  decoding="async" referrerpolicy="no-referrer"></picture><span class="prs-duration">57:48</span><span class="prs-episode">1</span></a><div class="prs-caption"><h3><a href="https://uo.brstej.com/watch.php?vid=e81fe13a2"> مسلسل Dark الموسم 3 الحلقة 1 الاولى مترجمة</a></h3></div></article></li><li><article class="prs-card"><a class="prs-image" href="https://uo.brstej.com/watch.php?vid=1dd6746f7" tabindex="-1" aria-hidden="true"><picture><img src="https://uo.brstej.com/uploads/thumbs/757f92e8b-1.jpg" alt="" width="480" height="270" loading="lazy"  decoding="async" referrerpolicy="no-referrer"></picture><span class="prs-duration">56:23</span><span class="prs-episode">4</span></a><div class="prs-caption"><h3><a href="https://uo.brstej.com/watch.php?vid=1dd6746f7"> مسلسل Dark الموسم 1 الحلقة 4 الرابعة مترجمة</a></h3></div></article></li><li><article class="prs-card"><a class="prs-image" href="https://uo.brstej.com/watch.php?vid=de919f402" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="/uploads/prestige-home-images/1a1d22c4de2a9afa983c3f0bb87c003f56bee1a1943776697f03e81779f28fd3-320.webp 320w, /uploads/prestige-home-images/1a1d22c4de2a9afa983c3f0bb87c003f56bee1a1943776697f03e81779f28fd3-480.webp 480w, /uploads/prestige-home-images/1a1d22c4de2a9afa983c3f0bb87c003f56bee1a1943776697f03e81779f28fd3-640.webp 640w"><img src="https://uo.brstej.com/uploads/thumbs/e81fe13a2-1.jpg" alt="" width="480" height="270" loading="lazy"  decoding="async" referrerpolicy="no-referrer"></picture><span class="prs-duration">57:48</span><span class="prs-episode">2</span></a><div class="prs-caption"><h3><a href="https://uo.brstej.com/watch.php?vid=de919f402"> مسلسل Dark الموسم 3 الحلقة 2 الثانية مترجمة</a></h3></div></article></li><li><article class="prs-card"><a class="prs-image" href="https://uo.brstej.com/watch.php?vid=e80327106" tabindex="-1" aria-hidden="true"><picture><img src="https://uo.brstej.com/uploads/thumbs/757f92e8b-1.jpg" alt="" width="480" height="270" loading="lazy"  decoding="async" referrerpolicy="no-referrer"></picture><span class="prs-duration">59:21</span><span class="prs-episode">5</span></a><div class="prs-caption"><h3><a href="https://uo.brstej.com/watch.php?vid=e80327106"> مسلسل Dark الموسم 1 الحلقة 5 الخامسة مترجمة</a></h3></div></article></li><li><article class="prs-card"><a class="prs-image" href="https://uo.brstej.com/watch.php?vid=f85af9af1" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="/uploads/prestige-home-images/1a1d22c4de2a9afa983c3f0bb87c003f56bee1a1943776697f03e81779f28fd3-320.webp 320w, /uploads/prestige-home-images/1a1d22c4de2a9afa983c3f0bb87c003f56bee1a1943776697f03e81779f28fd3-480.webp 480w, /uploads/prestige-home-images/1a1d22c4de2a9afa983c3f0bb87c003f56bee1a1943776697f03e81779f28fd3-640.webp 640w"><img src="https://uo.brstej.com/uploads/thumbs/e81fe13a2-1.jpg" alt="" width="480" height="270" loading="lazy"  decoding="async" referrerpolicy="no-referrer"></picture><span class="prs-duration">57:48</span><span class="prs-episode">3</span></a><div class="prs-caption"><h3><a href="https://uo.brstej.com/watch.php?vid=f85af9af1"> مسلسل Dark الموسم 3 الحلقة 3 الثالثة مترجمة</a></h3></div></article></li><li><article class="prs-card"><a class="prs-image" href="https://uo.brstej.com/watch.php?vid=dff0b31c5" tabindex="-1" aria-hidden="true"><picture><img src="https://uo.brstej.com/uploads/thumbs/757f92e8b-1.jpg" alt="" width="480" height="270" loading="lazy"  decoding="async" referrerpolicy="no-referrer"></picture><span class="prs-duration">59:21</span><span class="prs-episode">6</span></a><div class="prs-caption"><h3><a href="https://uo.brstej.com/watch.php?vid=dff0b31c5"> مسلسل Dark الموسم 1 الحلقة 6 السادسة مترجمة</a></h3></div></article></li><li><article class="prs-card"><a class="prs-image" href="https://uo.brstej.com/watch.php?vid=fd97c6fe2" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="/uploads/prestige-home-images/1a1d22c4de2a9afa983c3f0bb87c003f56bee1a1943776697f03e81779f28fd3-320.webp 320w, /uploads/prestige-home-images/1a1d22c4de2a9afa983c3f0bb87c003f56bee1a1943776697f03e81779f28fd3-480.webp 480w, /uploads/prestige-home-images/1a1d22c4de2a9afa983c3f0bb87c003f56bee1a1943776697f03e81779f28fd3-640.webp 640w"><img src="https://uo.brstej.com/uploads/thumbs/e81fe13a2-1.jpg" alt="" width="480" height="270" loading="lazy"  decoding="async" referrerpolicy="no-referrer"></picture><span class="prs-duration">57:48</span><span class="prs-episode">4</span></a><div class="prs-caption"><h3><a href="https://uo.brstej.com/watch.php?vid=fd97c6fe2"> مسلسل Dark الموسم 3 الحلقة 4 الرابعة مترجمة</a></h3></div></article></li><li><article class="prs-card"><a class="prs-image" href="https://uo.brstej.com/watch.php?vid=e04d34e23" tabindex="-1" aria-hidden="true"><picture><img src="https://uo.brstej.com/uploads/thumbs/757f92e8b-1.jpg" alt="" width="480" height="270" loading="lazy"  decoding="async" referrerpolicy="no-referrer"></picture><span class="prs-duration">54:16</span><span class="prs-episode">7</span></a><div class="prs-caption"><h3><a href="https://uo.brstej.com/watch.php?vid=e04d34e23"> مسلسل Dark الموسم 1 الحلقة 7 السابعة مترجمة</a></h3></div></article></li><li><article class="prs-card"><a class="prs-image" href="https://uo.brstej.com/watch.php?vid=14d6053bc" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="/uploads/prestige-home-images/1a1d22c4de2a9afa983c3f0bb87c003f56bee1a1943776697f03e81779f28fd3-320.webp 320w, /uploads/prestige-home-images/1a1d22c4de2a9afa983c3f0bb87c003f56bee1a1943776697f03e81779f28fd3-480.webp 480w, /uploads/prestige-home-images/1a1d22c4de2a9afa983c3f0bb87c003f56bee1a1943776697f03e81779f28fd3-640.webp 640w"><img src="https://uo.brstej.com/uploads/thumbs/e81fe13a2-1.jpg" alt="" width="480" height="270" loading="lazy"  decoding="async" referrerpolicy="no-referrer"></picture><span class="prs-duration">57:48</span><span class="prs-episode">5</span></a><div class="prs-caption"><h3><a href="https://uo.brstej.com/watch.php?vid=14d6053bc"> مسلسل Dark الموسم 3 الحلقة 5 الخامسة مترجمة</a></h3></div></article></li><li><article class="prs-card"><a class="prs-image" href="https://uo.brstej.com/watch.php?vid=90bb203e1" tabindex="-1" aria-hidden="true"><picture><img src="https://uo.brstej.com/uploads/thumbs/757f92e8b-1.jpg" alt="" width="480" height="270" loading="lazy"  decoding="async" referrerpolicy="no-referrer"></picture><span class="prs-duration">54:16</span><span class="prs-episode">8</span></a><div class="prs-caption"><h3><a href="https://uo.brstej.com/watch.php?vid=90bb203e1"> مسلسل Dark الموسم 1 الحلقة 8 الثامنة مترجمة</a></h3></div></article></li></ul>
+<nav class="prs-pagination" aria-label="صفحات النتائج"><div class="row">
+	<div class="col-md-12 text-center">
+	<ul class="pagination pagination-sm pagination-arrows">
+				<li class="disabled">
+			<a href="#" onclick="return false;" aria-label="الصفحة السابقة">&laquo;</a>
+		</li>
+				<li class="active">
+			<a href="#" onclick="return false;">1</a>
+		</li>
+				<li class="">
+			<a href="search.php?keywords=dark&page=2">2</a>
+		</li>
+				<li class="">
+			<a href="search.php?keywords=dark&page=3">3</a>
+		</li>
+				<li class="">
+			<a href="search.php?keywords=dark&page=4">4</a>
+		</li>
+				<li class="">
+			<a href="search.php?keywords=dark&page=5">5</a>
+		</li>
+				<li class="disabled">
+			<a href="#" onclick="return false;">...</a>
+		</li>
+				<li class="">
+			<a href="search.php?keywords=dark&page=9">9</a>
+		</li>
+				<li class="">
+			<a href="search.php?keywords=dark&page=10">10</a>
+		</li>
+				<li class="">
+			<a href="search.php?keywords=dark&page=2" aria-label="الصفحة التالية">&raquo;</a>
+		</li>
+			</ul>
+	</div>
+</div></nav></div></main>
+<script>(function(){var r=document.getElementById('prs-results'),t=r.querySelector('.prs-toggle');if(!t)return;t.hidden=false;t.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){r.classList.toggle('prs-list',b.dataset.prsView==='list');t.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});});});})();</script>
+</div> <!--.mastcontent-wrap-->
+
+
+
+
+</div><!--content-->
+</div><!--.container-fluid no-padding-->
+
+
+<script type="text/javascript">
+ var bLazy = new Blazy({ 
+        offset: 10,
+		selector: '.lazy_load',
+		container: '.container'		
+    });
+(function () {
+	var dload = false;
+
+	function dyload() {
+		if (dload === false) {
+			dload = true;
+			document.removeEventListener('scroll', dyload);
+			document.removeEventListener('mousemove', dyload);
+			document.removeEventListener('mousedown', dyload);
+			document.removeEventListener('touchstart', dyload);
+			
+	
+		}
+	}
+	document.addEventListener("scroll", dyload),
+	document.addEventListener("mousemove", dyload),
+	document.addEventListener("mousedown", dyload), 
+	document.addEventListener("touchstart", dyload),
+	document.addEventListener("load", function () {
+	document.body.clientHeight != document.documentElement.clientHeight && 0 == document.documentElement.scrollTop && 0 == document.body.scrollTop || dyload()
+	});
+})();	
+</script>
+
+
+
+
+
+
+
+
+
+<div class="container-fluid container-footer">
+	
+		<style>.catfooter{margin-top:10px;text-align:center}.catfooter>a{width:150px;display:inline-block;background:#1c232c;border-radius:5px;height:40px;box-shadow:0 2px 4px #1c232c;line-height:40px;margin-bottom:6px;text-decoration:none;color:#fff;text-align:center;font-size:15px;font-weight:700}.catfooter a:hover{background:#333c4b;color:#fff}</style>
+<div class="catfooter" align="center">
+<a title=" موقع برستيج " href="https://uo.brstej.com/main430"> موقع برستيج </a>
+<a title=" حين لا يرانا احد" href="https://uo.brstej.com/series1.php?id=2767">حين لا يرانا احد</a>
+<a title=" مسلسل الكلان" href="https://uo.brstej.com/series1.php?id=2768"> مسلسل الكلان</a>
+<a title=" مسلسل تحت السن" href="https://uo.brstej.com/series1.php?id=2766"> مسلسل تحت السن </a>
+<a title="مسلم بن عقيل" href="https://uo.brstej.com/series1.php?id=2765"> مسلم بن عقيل</a>
+<a title=" مسلسل كارما" href="https://uo.brstej.com/series1.php?id=2764"> مسلسل كارما </a>
+<a title="احتمال حب مدبلج" href="https://uo.brstej.com/series1.php?id=2763">احتمال حب مدبلج</a>
+<a title=" حب محتمل مترجم" href="https://uo.brstej.com/series1.php?id=2762"> حب محتمل مترجم</a>
+<a title=" مسلسل حب ع ورق" href="https://uo.brstej.com/series1.php?id=2758">مسلسل حب ع ورق</a>
+<a title=" مسلسلات رمضان 2026 " href="https://uo.brstej.com/cat67.php?cat=ramdan2026"> مسلسلات رمضان 2026</a>
+<a title=" مسلسلات برستيج" href="https://uo.brstej.com/cat67.php?cat=prss7-2025"> مسلسلات برستيج</a>
+<a title="مسلسلات مصرية" href="https://uo.brstej.com/cat67.php?cat=eg8-2025"> مسلسلات مصرية </a>
+<a title=" مسلسلات شامية" href="https://uo.brstej.com/cat67.php?cat=syy5-2025"> مسلسلات شامية </a>
+<a title=" مسلسلات تركية 2026" href="https://uo.brstej.com/cat67.php?cat=ty9-2025"> مسلسلات تركية 2026 </a>
+<a title=" مسلسلات عربية" href="https://uo.brstej.com/cat67.php?cat=arab8-2025"> مسلسلات عربية</a>
+</div>
+
+
+
+
+
+     <style id="sl-tg-banner-css">
+    #sl-tg-banner,
+    #sl-tg-banner *,
+    #sl-tg-banner *::before,
+    #sl-tg-banner *::after {
+        box-sizing: border-box !important;
+    }
+
+    #sl-tg-banner {
+        position: fixed !important;
+        right: 50% !important;
+        bottom: 18px !important;
+        transform: translateX(50%) !important;
+        z-index: 999999 !important;
+        width: calc(100% - 28px) !important;
+        max-width: 390px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        direction: rtl !important;
+        color: #f7f8f8 !important;
+        font-family: inherit !important;
+        animation: sl-tg-enter 0.4s cubic-bezier(.2,.8,.2,1) both !important;
+    }
+
+    @keyframes sl-tg-enter {
+        from { opacity: 0; transform: translate(50%, 16px) scale(0.98); }
+        to { opacity: 1; transform: translate(50%, 0) scale(1); }
+    }
+
+    .sl-tg-shell {
+        position: relative !important;
+        width: 100% !important;
+        overflow: hidden !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        background: linear-gradient(160deg, rgba(20, 20, 23, 0.985), rgba(10, 11, 14, 0.985)) !important;
+        border: 1px solid rgba(224, 18, 61, 0.28) !important;
+        border-radius: 16px !important;
+        box-shadow: 0 20px 55px rgba(0, 0, 0, 0.58), inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+    }
+
+    .sl-tg-art {
+        position: relative !important;
+        width: 100% !important;
+        overflow: hidden !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        line-height: 0 !important;
+        background: #101419 !important;
+    }
+
+    .sl-tg-art::after {
+        content: '' !important;
+        position: absolute !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        height: 28px !important;
+        pointer-events: none !important;
+        background: linear-gradient(to bottom, transparent, rgba(13, 14, 17, 0.72)) !important;
+    }
+
+    .sl-tg-art img {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 537 / 90 !important;
+        display: block !important;
+        object-fit: cover !important;
+        object-position: center !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        border: 0 !important;
+    }
+
+    .sl-tg-content {
+        padding: 14px 14px 15px !important;
+        margin: 0 !important;
+        text-align: center !important;
+    }
+
+    .sl-tg-heading {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        width: fit-content !important;
+        max-width: 100% !important;
+        min-height: 34px !important;
+        padding: 4px 6px 4px 13px !important;
+        margin: 0 auto 12px !important;
+        background: linear-gradient(100deg, rgba(224, 18, 61, 0.10), rgba(255, 255, 255, 0.025)) !important;
+        border: 1px solid rgba(224, 18, 61, 0.25) !important;
+        border-radius: 999px !important;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04) !important;
+    }
+
+    .sl-tg-title {
+        overflow: hidden !important;
+        color: #f5f6f8 !important;
+        font-size: 13px !important;
+        font-weight: 700 !important;
+        line-height: 1.3 !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .sl-tg-badge {
+        flex: 0 0 auto !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 5px !important;
+        min-height: 25px !important;
+        padding: 5px 10px !important;
+        margin: 0 !important;
+        color: #fff !important;
+        background: linear-gradient(135deg, #f02b57, #d90f3c) !important;
+        border: 1px solid rgba(255, 255, 255, 0.14) !important;
+        border-radius: 999px !important;
+        box-shadow: 0 5px 14px rgba(224, 18, 61, 0.28) !important;
+        font-family: inherit !important;
+        font-size: 11px !important;
+        font-weight: 700 !important;
+        line-height: 1 !important;
+    }
+
+    .sl-tg-dot {
+        width: 5px !important;
+        height: 5px !important;
+        display: block !important;
+        background: #fff !important;
+        border-radius: 50% !important;
+        box-shadow: 0 0 7px rgba(255, 255, 255, 0.85) !important;
+    }
+
+    .sl-tg-desc {
+        max-width: 330px !important;
+        color: #aeb3bc !important;
+        font-size: 12px !important;
+        font-weight: 500 !important;
+        line-height: 1.75 !important;
+        padding: 0 !important;
+        margin: 0 auto 13px !important;
+    }
+
+    .sl-tg-actions {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr) !important;
+        gap: 8px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .sl-tg-join,
+    .sl-tg-hide {
+        min-width: 0 !important;
+        min-height: 42px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 7px !important;
+        padding: 10px 12px !important;
+        margin: 0 !important;
+        border-radius: 10px !important;
+        cursor: pointer !important;
+        text-decoration: none !important;
+        font-family: inherit !important;
+        font-size: 13px !important;
+        font-weight: 700 !important;
+        line-height: 1 !important;
+        transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease !important;
+    }
+
+    .sl-tg-join {
+        color: #fff !important;
+        background: linear-gradient(135deg, #20a7e6, #078bc9) !important;
+        border: 1px solid rgba(255, 255, 255, 0.15) !important;
+        box-shadow: 0 7px 18px rgba(0, 136, 204, 0.25) !important;
+    }
+
+    .sl-tg-join:hover,
+    .sl-tg-join:focus-visible {
+        color: #fff !important;
+        background: linear-gradient(135deg, #35b7f1, #0798db) !important;
+        transform: translateY(-1px) !important;
+    }
+
+    .sl-tg-hide {
+        color: #a8adb6 !important;
+        background: rgba(255, 255, 255, 0.035) !important;
+        border: 1px solid rgba(255, 255, 255, 0.09) !important;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.025) !important;
+    }
+
+    .sl-tg-hide:hover,
+    .sl-tg-hide:focus-visible {
+        color: #fff !important;
+        background: rgba(255, 255, 255, 0.08) !important;
+        border-color: rgba(255, 255, 255, 0.15) !important;
+    }
+
+    .sl-tg-join svg,
+    .sl-tg-hide svg {
+        width: 16px !important;
+        height: 16px !important;
+        display: block !important;
+    }
+
+    .sl-tg-join svg { fill: currentColor !important; }
+    .sl-tg-hide svg {
+        fill: none !important;
+        stroke: currentColor !important;
+        stroke-width: 2 !important;
+        stroke-linecap: round !important;
+        stroke-linejoin: round !important;
+    }
+
+    .sl-tg-close {
+        position: absolute !important;
+        top: -11px !important;
+        left: -11px !important;
+        z-index: 3 !important;
+        width: 32px !important;
+        height: 32px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        color: #a4a9b1 !important;
+        background: #17191d !important;
+        border: 1px solid rgba(255, 255, 255, 0.13) !important;
+        border-radius: 50% !important;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45) !important;
+        cursor: pointer !important;
+        font: 400 18px/1 Arial, sans-serif !important;
+        transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease !important;
+    }
+
+    .sl-tg-close:hover,
+    .sl-tg-close:focus-visible {
+        color: #fff !important;
+        background: #e0123d !important;
+        transform: scale(1.05) !important;
+    }
+
+    .sl-tg-progress {
+        position: absolute !important;
+        right: 12px !important;
+        bottom: 0 !important;
+        left: 12px !important;
+        height: 3px !important;
+        pointer-events: none !important;
+        background: linear-gradient(90deg, transparent, #e0123d, transparent) !important;
+        transform-origin: right center !important;
+        animation: sl-tg-countdown 15s linear forwards !important;
+    }
+
+    @keyframes sl-tg-countdown {
+        from { transform: scaleX(1); opacity: 1; }
+        to { transform: scaleX(0); opacity: 0.55; }
+    }
+
+    @media (max-width: 430px) {
+        #sl-tg-banner {
+            bottom: 11px !important;
+            width: calc(100% - 24px) !important;
+            max-width: 370px !important;
+        }
+
+        .sl-tg-shell { border-radius: 14px !important; }
+        .sl-tg-content { padding: 12px 12px 14px !important; }
+        .sl-tg-heading { margin-bottom: 10px !important; }
+        .sl-tg-desc { font-size: 11.5px !important; margin-bottom: 11px !important; }
+        .sl-tg-join, .sl-tg-hide { min-height: 40px !important; font-size: 12px !important; padding: 9px 8px !important; }
+        .sl-tg-close { top: -9px !important; left: -7px !important; width: 30px !important; height: 30px !important; }
+    }
+
+    @media (max-width: 330px) {
+        .sl-tg-actions { grid-template-columns: 1fr !important; }
+        .sl-tg-desc br { display: none !important; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        #sl-tg-banner,
+        .sl-tg-progress {
+            animation: none !important;
+        }
+    }
+    </style>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // ارفع الرقم عند تغيير القناة أو بدء حملة جديدة.
+        var campaignVersion = '6';
+        var cookieName = 'sl_tg_banner_seen_v' + campaignVersion + '=';
+        var showDelay = 8000;
+        var autoCloseDelay = 15000;
+        var timer;
+
+        if (document.cookie.indexOf(cookieName) !== -1) return;
+
+        function saveSeen() {
+            var expires = new Date();
+            expires.setTime(expires.getTime() + (7 * 24 * 60 * 60 * 1000));
+            document.cookie = cookieName + '1;expires=' + expires.toUTCString() + ';path=/;SameSite=Lax';
+        }
+
+        function closeBanner() {
+            clearTimeout(timer);
+            var banner = document.getElementById('sl-tg-banner');
+            if (banner) banner.remove();
+            saveSeen();
+        }
+
+        function showBanner() {
+            if (document.getElementById('sl-tg-banner')) return;
+
+            var html = `
+                <div id="sl-tg-banner" data-nosnippet role="complementary" aria-label="قناة تليجرام">
+                    <button type="button" class="sl-tg-close" aria-label="إغلاق البنر">&times;</button>
+                    <div class="sl-tg-shell">
+                        <div class="sl-tg-art">
+                            <img src="https://lh3.googleusercontent.com/-CFpjr0l6gRI/ap9INvPrnvI/AAAAAAAAMt8/_t4yHVpEIRMybOhYP-p9UAYVC_u6sRUhwCNcBGAsYHQ/s16000-rw-e365/491180de.jpg" width="537" height="90" alt="" decoding="async">
+                        </div>
+                        <div class="sl-tg-content">
+                            <div class="sl-tg-heading">
+                                <span class="sl-tg-badge"><span class="sl-tg-dot"></span> عاجل</span>
+                                <div class="sl-tg-title">قناة تليجرام الجديدة</div>
+                            </div>
+                            <p class="sl-tg-desc">انضم إلينا الآن واحصل على أحدث المسلسلات<br>والأفلام الحصرية فور نزولها بجودة عالية</p>
+                            <div class="sl-tg-actions">
+                                <a class="sl-tg-join" href="https://t.me/brstejcom" target="_blank" rel="noopener noreferrer nofollow">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.7 3.45 18.5 19.1c-.24 1.1-.88 1.37-1.78.85l-4.88-3.6-2.35 2.27c-.26.26-.48.48-.98.48l.35-4.97 9.04-8.17c.39-.35-.09-.55-.61-.2L6.12 12.8 1.3 11.3c-1.05-.33-1.07-1.05.22-1.55L20.36 2.5c.87-.32 1.63.2 1.34.95Z"/></svg>
+                                    انضم الآن
+                                </a>
+                                <button type="button" class="sl-tg-hide">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3l18 18M10.6 10.7a2 2 0 002.7 2.7M9.9 4.2A9.7 9.7 0 0112 4c7 0 10 8 10 8a15.8 15.8 0 01-2.1 3.3M6.6 6.6C3.8 8.4 2 12 2 12s3 8 10 8a9.5 9.5 0 004.1-.9"/></svg>
+                                    إخفاء
+                                </button>
+                            </div>
+                        </div>
+                        <div class="sl-tg-progress" aria-hidden="true"></div>
+                    </div>
+                </div>`;
+
+            document.body.insertAdjacentHTML('beforeend', html);
+
+            var banner = document.getElementById('sl-tg-banner');
+            banner.querySelector('.sl-tg-close').addEventListener('click', closeBanner);
+            banner.querySelector('.sl-tg-hide').addEventListener('click', closeBanner);
+            banner.querySelector('.sl-tg-join').addEventListener('click', saveSeen);
+            timer = setTimeout(closeBanner, autoCloseDelay);
+        }
+
+        setTimeout(showBanner, showDelay);
+    });
+    </script><img src="https://uo.brstej.com/ajax.php?p=stats&do=show&aid=904&at=1" width="1" height="1" border="0" alt="" />
+		<footer>
+		
+
+		<div class="row row-footer-horizontal">
+			<div class="col-xs-12 col-sm-12 col-md-10">
+			
+			<p>	&copy; 2026 <a href="https://uo.brstej.com" style="color:#aaa;">موقع برستيج</a>. كافة الحقوق محفوظة لـ </p>
+			</div>
+			
+			
+		</div>
+	</footer>
+</div>
+
+
+
+<script src="https://uo.brstej.com/templates/echo/js/jquery-migrate-1.2.1.min.js"></script>
+
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="https://uo.brstej.com/templates/echo/js/theme.js?v=tooltip-20260913150513"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	if ( $(window).width() < 780 ){
+		$('[rel="tooltip"]').tooltip('dispose');
+	}
+});
+
+$(document).ready(function() { 
+  $(function() {
+	$('.ripple').on('click', function (event) {
+	  
+	  var $div = $('<div/>'),
+		  btnOffset = $(this).offset(),
+			xPos = event.pageX - btnOffset.left,
+			yPos = event.pageY - btnOffset.top;
+	  
+	  $div.addClass('ripple-effect');
+	  var $ripple = $(".ripple-effect");
+	  
+	  $ripple.css("height", $(this).height());
+	  $ripple.css("width", $(this).height());
+	  $div
+		.css({
+		  top: yPos - ($ripple.height()/2),
+		  left: xPos - ($ripple.width()/2),
+		  background: $(this).data("ripple-color")
+		}) 
+		.appendTo($(this));
+
+	  window.setTimeout(function(){
+		$div.remove();
+	  }, 2000);
+	});
+  });
+});
+
+
+$(document).ready(function() {
+	echo.init({
+		offset: 600,
+		throttle: 200,
+	});
+
+
+	if($('ul.pagination').length) {
+		$('ul.pagination.pagination-arrows li a').first().html("<i class='fa fa-arrow-right'></i>");
+		$('ul.pagination.pagination-arrows li a').last().html("<i class='fa fa-arrow-left'></i>");
+	}
+
+});
+
+$(document).ready(function() {
+	$('.btn-with-loader').on('click', function() {
+		var $this = $(this);
+		$this.button('Loading').prepend('<i class="btn-loader"></i>');
+		setTimeout(function() {
+			$this.button('reset');
+		}, 2000);
+	});
+});
+$(document).ready(function() {
+  $(".pm-section-highlighted, .pm-ul-browse-videos").animsition({
+	linkElement: '.animsition',
+	loading: false,
+	timeout: true,
+	timeoutCountdown: 5000,
+	browser: [ 'animation-duration', '-webkit-animation-duration'],
+	overlay : false,
+	overlayClass : '',
+	overlayParentElement : 'body',
+	transition: function(url){ 
+		$('header').append('<div class="pm-horizontal-loader"></div>');
+		window.location.href = url; }
+  });
+});
+
+
+$(document).ready(function() {
+	$.notifyDefaults({
+
+	element: 'body',
+	position: null,
+	type: "info",
+	allow_dismiss: true,
+	newest_on_top: true,
+	showProgressbar: false,
+	placement: {
+		from: "top", 
+		align: "right" 
+	},
+	offset: {
+		x: 20,
+		y: 100
+		},
+	spacing: 10,
+	z_index: 1031,
+	delay: 10000,
+	timer: 1000,
+	url_target: '_blank',
+	mouse_over: null,
+	animate: {
+		enter: 'animated fadeInDown',
+		exit: 'animated fadeOutUpBig',
+	},
+	onShow: null,
+	onShown: null,
+	onClose: null,
+	onClosed: null,
+	template: '<div data-notify="container" class="growl alert alert-{0}" role="alert">' +
+				'<button type="button" aria-hidden="true" class="close" data-notify="dismiss">&times;</button>' +
+				'<span data-notify="icon"></span> ' +
+				'<span data-notify="title">{1}</span> ' +
+				'<span data-notify="message">{2}</span>' +
+				'<div class="progress" data-notify="progressbar">' +
+					'<div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
+				'</div>' +
+				'<a href="{3}" target="{4}" data-notify="url"></a>' +
+			'</div>',
+	PM_exitAnimationTimeout: 0 
+	});
+});
+</script>
+
+
+
+
+
+<script src="https://uo.brstej.com/templates/echo/js/jquery.plugins.a.js" type="text/javascript"></script>
+<script src="https://uo.brstej.com/js/jquery.typewatch.js" type="text/javascript"></script>
+<script type="text/javascript" src="https://uo.brstej.com/js/bootstrap-notify.min.js"></script>
+<script src="https://uo.brstej.com/js/melody.dev.js" type="text/javascript"></script>
+<script src="https://uo.brstej.com/templates/echo/js/melody.dev.js" type="text/javascript"></script>
+<!-- <script src="https://uo.brstej.com/templates/echo/js/lightbox.dev.js" type="text/javascript"></script> -->
+<script src="https://uo.brstej.com/templates/echo/js/jasny-bootstrap.min.js" type="text/javascript"></script>
+<script src="https://uo.brstej.com/templates/echo/js/jquery.plugins.b.js?v=paf-20260914-1" type="text/javascript"></script>
+
+
+ 
+
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$('textarea').autosize();
+	$(".ellipsis").dotdotdot({
+	ellipsis : '...',
+	wrap : 'word',
+	watch: true,
+	height : 40
+	});
+});
+</script>
+
+
+
+<script type="text/javascript">
+$(document).ready(function () {
+$('#pm-search').typeWatch({
+	callback: function() {		
+	$.ajax({
+		type: "POST",
+		url: "/ajax-search.php",
+		data: {
+			"queryString": $('#pm-search').val()
+		},
+		dataType: "html",
+		success: function(b){
+			if (b.length > 0) {
+				$(".pm-search-suggestions-list").html(b);
+
+				$(".pm-search-suggestions").show(function() {
+
+					var $listItems = $('.pm-search-suggestions-list').find('li');
+
+					$('#pm-search').keydown(function(e)
+					{
+
+						var key = e.keyCode,
+							$selected = $listItems.filter('.selected'),
+							$current;
+
+						if ( key === 27 ) { 
+							$(".pm-search-suggestions").hide();
+						}
+
+						if( key == 38 || key == 40 ){ 
+							e.preventDefault();
+						}
+
+						if ( key != 38 && key != 40 ) return;
+
+						$listItems.removeClass('selected');
+
+						if ( key == 40 ) 
+						{
+							if ( ! $selected.length || $selected.is(':last-child') ) {
+								$current = $listItems.eq(0);
+							}
+							else {
+								$current = $selected.next();
+							}
+						}
+						else if ( key == 38 ) 
+						{
+							if ( ! $selected.length || $selected.is(':first-child') ) {
+								$current = $listItems.last();
+							}
+							else {
+								$current = $selected.prev();
+							}
+						}
+
+						$current.addClass('selected');
+						$selected_url = $current.find('a').attr('href');
+
+						$selected_id = $current.attr('data-video-id');
+
+						($('#pm-video-id').val($selected_id));
+
+					});
+
+					$(document).on('click', (function(e) {
+						if(e.target.className !== "pm-search-suggestions" && e.target.id !== "pm-search") {
+								$(".pm-search-suggestions").hide();
+						}}));
+				});
+
+			} else {
+				$(".pm-search-suggestions").hide();
+			}
+		}
+	});
+},
+wait: 400,
+highlight: true,
+captureLength: 3
+});
+});
+</script>
+
+
+
+
+<script src="https://uo.brstej.com/templates/echo/js/jquery.readmore.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+if (document.querySelector('.pm-series-description') !== null) {
+	$('.pm-series-description').readmore({
+		speed: 50,
+		maxHeight: 100,
+		moreLink: '<a href="#content">' + pm_lang.show_more +'</a>',
+		lessLink: '<a href="#content">' + pm_lang.show_less +'</a>',
+	});
+}
+});
+</script>
+
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#modal-login-form, #modal-register-form').on('shown.bs.modal', function() {
+		document.activeElement.blur();
+		$(this).find(".modal-body :input:visible").first().focus();
+	});
+});
+</script>
+
+
+
+
+<script type="text/javascript">
+(function() {
+	"use strict";
+	var toggles = document.querySelectorAll("#navslide-toggle");
+
+	for (var i = toggles.length - 1; i >= 0; i--) {
+	var toggle = toggles[i];
+	toggleHandler(toggle);
+	};
+
+	function toggleHandler(toggle) {
+	toggle.addEventListener( "click", function(e) {
+		e.preventDefault();
+		(this.classList.contains("is-active") === true) ? this.classList.remove("is-active") : this.classList.add("is-active");
+	});
+	}
+})();
+
+</script>
+
+
+
+
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4F9Y2X30YT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'G-4F9Y2X30YT');
+</script>
+
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3c9105f7be6ee7e',t:'MTc4OTY1ODEwMQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html><!-- prestige-public-guest-cache-v1 -->

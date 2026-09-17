@@ -11,22 +11,22 @@ DEFAULT_HEADERS = {
     ),
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
     "Accept-Language": "ar-EG,ar;q=0.9,en-US;q=0.8,en;q=0.7",
-    "Referer": "https://uo.brstej.com/",
+    "Referer": "https://a.qfilm.tv/",
 }
 TIMEOUT = 10
 
 
-def search_brstej(
+def search_qfilm(
     platform_name: str, logo_path: str, keyword: str
 ) -> Dict[str, Any]:
-    """Extractor function for Prestige / برستيج (HTML / BeautifulSoup).
+    """Extractor function for QFilm / كيو فيلم (HTML / BeautifulSoup).
 
     Deduplicates series episodes into a single entry per series.
     """
     results = []
     seen_series = set()
 
-    base_url = "https://uo.brstej.com"
+    base_url = "https://a.qfilm.tv"
     search_url = f"{base_url}/search.php"
     params = {"keywords": keyword}
 
@@ -38,25 +38,28 @@ def search_brstej(
 
         soup = BeautifulSoup(response.text, "html.parser")
 
-        # Select video grid items on Prestige (.prs-grid > li)
-        items = soup.select("#prs-results .prs-grid > li")
+        # Select items from the video grid
+        items = soup.select("#pm-grid li, ul.pm-ul-browse-videos li")
 
         for item in items:
-            # Locate title link inside caption or image anchor
-            link_el = item.select_one(".prs-caption h3 a") or item.select_one("a.prs-image")
+            # Locate title link inside thumbnail container
+            link_el = item.select_one("a[title]") or item.select_one(".caption")
+            if link_el and link_el.name != "a":
+                link_el = link_el.find_parent("a") or item.select_one("a")
+
             if not link_el or not link_el.get("href"):
                 continue
 
-            raw_title = link_el.text.strip() or link_el.get("title", "").strip()
+            raw_title = link_el.get("title") or link_el.text.strip()
             url = urljoin(base_url, link_el["href"])
 
-            # Handle poster images using img src or lazy-load attributes
+            # Handle lazy-loaded poster images using data-echo or src
             img_el = item.select_one("img")
             poster = ""
             if img_el:
                 poster = (
-                    img_el.get("data-original")
-                    or img_el.get("data-src")
+                    img_el.get("data-echo")
+                    or img_el.get("data-original")
                     or img_el.get("src")
                     or ""
                 )
@@ -109,7 +112,7 @@ def search_brstej(
 
 
 if __name__ == "__main__":
-    test_result = search_brstej(
-        "Prestige", "static/logos/prestige.png", "life"
+    test_result = search_qfilm(
+        "QFilm", "static/logos/qfilm.png", "Mad Max"
     )
     print(test_result)
