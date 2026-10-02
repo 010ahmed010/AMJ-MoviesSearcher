@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import json
+import os
 import re
 from urllib.parse import urljoin
 from typing import Dict, List, Any
@@ -8,7 +9,44 @@ import requests
 from bs4 import BeautifulSoup
 from flask import Flask, render_template, request, Response, stream_with_context
 
+
+class Config:
+    """Base configuration used by all runtime environments."""
+
+    SECRET_KEY = os.environ.get("SECRET_KEY", "change-me-in-production")
+    JSON_SORT_KEYS = False
+    JSON_AS_ASCII = False
+    MAX_CONTENT_LENGTH = 16 * 1024 * 1024
+    SESSION_COOKIE_HTTPONLY = True
+    SESSION_COOKIE_SAMESITE = "Lax"
+    REMEMBER_COOKIE_HTTPONLY = True
+
+
+class DevelopmentConfig(Config):
+    DEBUG = True
+    TESTING = False
+
+
+class ProductionConfig(Config):
+    DEBUG = False
+    TESTING = False
+    SESSION_COOKIE_SECURE = True
+
+
+class TestingConfig(Config):
+    DEBUG = False
+    TESTING = True
+    SESSION_COOKIE_SECURE = False
+
+
+config_by_name = {
+    "development": DevelopmentConfig,
+    "production": ProductionConfig,
+    "testing": TestingConfig,
+}
+
 app = Flask(__name__)
+app.config.from_object(config_by_name.get(os.environ.get("APP_ENV", "production"), ProductionConfig))
 
 DEFAULT_HEADERS = {
     "User-Agent": (
@@ -397,5 +435,12 @@ def stream_search():
 
 
 if __name__ == "__main__":
-    print("🚀 AMJ-MoviesSearcher running at http://127.0.0.1:5000")
+    host = os.environ.get("HOST", "0.0.0.0")
+    port = int(os.environ.get("PORT", "8000"))
+    app.run(
+        host=host,
+        port=port,
+        debug=app.config.get("DEBUG", False),
+        threaded=True,
+    )
     app.run(host="0.0.0.0",debug=True, port=5000)

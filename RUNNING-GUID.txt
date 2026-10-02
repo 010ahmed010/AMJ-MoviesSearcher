@@ -1,0 +1,295 @@
+AMJ-MoviesSearcher - Full Linux / VPS Deployment Guide
+=====================================================
+
+This file explains how to run this app on a Linux server or VPS from a GitHub repository.
+
+What this app is:
+- Flask web app that searches multiple movie/series platforms
+- Uses Python and BeautifulSoup
+- Can run with Gunicorn in production
+
+Project structure:
+- app.py
+- requirements.txt
+- gunicorn.conf.py
+- .env.example
+- templates/
+- Functions/
+- Test/
+
+-----------------------------------------------------
+1) Requirements on the server
+-----------------------------------------------------
+You need a Linux server (Ubuntu/Debian recommended) with:
+- Python 3.10+ recommended
+- Git
+- A non-root user (recommended)
+- Access to install packages with apt
+
+Command:
+    sudo apt update
+    sudo apt install -y python3 python3-venv python3-pip git curl
+
+If you are using Ubuntu 22+ or 24+, Python 3 is usually already installed.
+
+-----------------------------------------------------
+2) Create a server user (optional but recommended)
+-----------------------------------------------------
+Commands:
+    sudo adduser amj
+    sudo usermod -aG sudo amj
+
+Then switch to that user:
+    su - amj
+
+-----------------------------------------------------
+3) Clone the GitHub repository
+-----------------------------------------------------
+Commands:
+    cd /home/amj
+    git clone https://github.com/YOUR_USERNAME/AMJ-MoviesSearcher.git
+    cd AMJ-MoviesSearcher
+
+Replace the URL with your real GitHub repo link.
+
+Example:
+    git clone https://github.com/yourname/AMJ-MoviesSearcher.git
+
+-----------------------------------------------------
+4) Create a virtual environment
+-----------------------------------------------------
+Commands:
+    cd /home/amj/AMJ-MoviesSearcher
+    python3 -m venv venv
+    source venv/bin/activate
+
+This keeps dependencies isolated from the system Python.
+
+-----------------------------------------------------
+5) Install app dependencies
+-----------------------------------------------------
+Commands:
+    pip install --upgrade pip
+    pip install -r requirements.txt
+
+This installs:
+- Flask
+- requests
+- beautifulsoup4
+- gunicorn
+
+-----------------------------------------------------
+6) Set environment variables
+-----------------------------------------------------
+The app expects environment variables for production mode.
+
+Commands:
+    cp .env.example .env
+    nano .env
+
+Example content:
+    APP_ENV=production
+    HOST=0.0.0.0
+    PORT=8000
+    SECRET_KEY=your-very-long-random-secret-key
+
+Important:
+- SECRET_KEY must be replaced with a real secret string.
+- Do not keep the default value in production.
+
+Command to generate a secret key:
+    python3 - <<'PY'
+    import secrets
+    print(secrets.token_hex(32))
+    PY
+
+-----------------------------------------------------
+7) Load the environment and verify the app
+-----------------------------------------------------
+Commands:
+    source .env
+    python3 -m py_compile app.py
+
+This checks that the app has no Python syntax errors.
+
+Command to test in production mode:
+    APP_ENV=production SECRET_KEY="your-secret" HOST=0.0.0.0 PORT=8000 python3 app.py
+
+This starts the Flask app with production config.
+
+-----------------------------------------------------
+8) Start the app with Gunicorn (recommended for production)
+-----------------------------------------------------
+Command:
+    source .env
+    gunicorn --config gunicorn.conf.py app:app
+
+This starts the app using Gunicorn, which is the proper production web server for Flask.
+
+Background command:
+    nohup gunicorn --config gunicorn.conf.py app:app > app.log 2>&1 &
+
+Check status commands:
+    ps -ef | grep gunicorn
+    tail -f app.log
+
+-----------------------------------------------------
+9) Common production commands
+-----------------------------------------------------
+Start app command:
+    source .env
+    gunicorn --config gunicorn.conf.py app:app
+
+Restart app commands:
+    pkill -f gunicorn
+    nohup gunicorn --config gunicorn.conf.py app:app > app.log 2>&1 &
+
+Check listening port command:
+    ss -tulpn | grep 8000
+
+Test homepage command:
+    curl http://localhost:8000/
+
+-----------------------------------------------------
+10) Deploy behind a reverse proxy (recommended)
+-----------------------------------------------------
+For a real VPS, it is better to put Gunicorn behind Nginx.
+
+Example Nginx config:
+    server {
+        listen 80;
+        server_name your-domain.com;
+
+        location / {
+            proxy_pass http://127.0.0.1:8000;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+    }
+
+Commands:
+    sudo ln -s /etc/nginx/sites-available/your-site /etc/nginx/sites-enabled/
+    sudo nginx -t
+    sudo systemctl restart nginx
+
+-----------------------------------------------------
+11) Use systemd service (best for VPS stability)
+-----------------------------------------------------
+Create service file command:
+    sudo nano /etc/systemd/system/amj-movies-searcher.service
+
+Service file content:
+    [Unit]
+    Description=AMJ Movies Searcher
+    After=network.target
+
+    [Service]
+    User=amj
+    Group=amj
+    WorkingDirectory=/home/amj/AMJ-MoviesSearcher
+    Environment=APP_ENV=production
+    Environment=HOST=0.0.0.0
+    Environment=PORT=8000
+    Environment=SECRET_KEY=your-secret-key
+    ExecStart=/home/amj/AMJ-MoviesSearcher/venv/bin/gunicorn --config /home/amj/AMJ-MoviesSearcher/gunicorn.conf.py app:app
+    Restart=always
+    RestartSec=3
+
+    [Install]
+    WantedBy=multi-user.target
+
+Enable and start commands:
+    sudo systemctl daemon-reload
+    sudo systemctl enable amj-movies-searcher
+    sudo systemctl start amj-movies-searcher
+    sudo systemctl status amj-movies-searcher
+
+Log command:
+    sudo journalctl -u amj-movies-searcher -f
+
+-----------------------------------------------------
+12) Important production notes
+-----------------------------------------------------
+- Never run Flask debug mode in production
+- Use a real SECRET_KEY
+- Keep the app behind a reverse proxy like Nginx
+- Make sure your firewall allows port 80 or 443
+- Use HTTPS with a domain and SSL certificate
+- Use a proper Linux service manager like systemd
+
+Firewall commands:
+    sudo ufw allow 22
+    sudo ufw allow 80
+    sudo ufw allow 443
+    sudo ufw enable
+
+-----------------------------------------------------
+13) Full example from clone to running app
+-----------------------------------------------------
+Full flow commands:
+    sudo apt update
+    sudo apt install -y python3 python3-venv python3-pip git curl
+
+    cd /home/amj
+    git clone https://github.com/YOUR_USERNAME/AMJ-MoviesSearcher.git
+    cd AMJ-MoviesSearcher
+
+    python3 -m venv venv
+    source venv/bin/activate
+    pip install --upgrade pip
+    pip install -r requirements.txt
+
+    cp .env.example .env
+    nano .env
+
+    source .env
+    python3 -m py_compile app.py
+    gunicorn --config gunicorn.conf.py app:app
+
+Background command:
+    source .env
+    nohup gunicorn --config gunicorn.conf.py app:app > app.log 2>&1 &
+
+-----------------------------------------------------
+14) Troubleshooting
+-----------------------------------------------------
+If you get module errors:
+    source venv/bin/activate
+    pip install -r requirements.txt
+
+If Gunicorn cannot start:
+    gunicorn --check-config gunicorn.conf.py
+
+If app is not reachable:
+    ss -tulpn | grep 8000
+    curl http://localhost:8000/
+
+If ports are blocked:
+    sudo ufw status
+    sudo ufw allow 8000
+
+If you see permission problems:
+    sudo chown -R amj:amj /home/amj/AMJ-MoviesSearcher
+
+-----------------------------------------------------
+15) Final note
+-----------------------------------------------------
+For a production VPS, the best practice is:
+- use GitHub repo
+- clone on server
+- install dependencies in venv
+- set environment variables in .env
+- run via Gunicorn
+- place behind Nginx
+- manage with systemd
+
+This keeps the app stable, secure, and easy to restart.
+
+-----------------------------------------------------
+If you want, I can also create:
+- a ready-to-use .env file
+- a systemd service file
+- an Nginx config example
+- a Docker version for Linux deployment
